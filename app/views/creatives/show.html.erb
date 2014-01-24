@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @creative.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @creative.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @creative.user_id %>
+</p>
+
+
+<%= link_to 'Add Chapter', new_creative_chapter_path(@creative) %>
+
+
+<h1>Listing chapters</h1>
+
+    <% @creative.chapters.each do |chapter| %>
+      <fieldset>
+        <h3><%= chapter.name %></h3>
+        <p><%= chapter.body %></p>
+        	<%= link_to 'Edit', edit_creative_chapter_path(@creative, chapter) %> |
+        	<%= link_to 'Destroy', creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: 'Are you sure?' } %>
+     </fieldset>
+    <% end %>
+
+<%= link_to 'Edit', edit_creative_path(@creative) %> |
+<%= link_to 'Back', creatives_path %>
+
+
+<%= render 'comments/form' %>
+<%= render 'comments/show' %>

@@ -1,0 +1,33 @@
+<div>
+  <h1>Редактирование главы</h1>
+  <fieldset>
+    <%= form_for @chapter, url: creative_chapter_path(@chapter.creative, @chapter) do |f| %>
+      <% if @chapter.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
+          <ul>
+            <% @chapter.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div>
+        <%= f.text_field :name, :placeholder => "Имя главы" %>
+      </div>
+      <div>
+        <%= f.number_field :number %>
+      </div>
+      <div>
+        <%= text_area_tag :body, @chapter.body %>
+      </div>
+      <div>
+        <%= f.hidden_field :creative_id %>
+      </div>
+      <div>
+        <button type="submit">Сохранить </button>
+      </div>
+    <% end %>
+  </fieldset>
+  <%= link_to t('back'), creative_path(@chapter.creative) %>
+</div>

@@ -1,9 +1,8 @@
 class CommentSerializer < ActiveModel::Serializer
   attributes :body, :date, :user
-  GUEST_USERNAME = "Guest"
 
   def user
-    object.user.present? ? object.user.email : GUEST_USERNAME
+    object.user.nickname.present? ? object.user.nickname : object.user.email
   end
 
   def date

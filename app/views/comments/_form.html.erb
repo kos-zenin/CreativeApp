@@ -1,9 +1,9 @@
-<%= form_for [@creative, @creative.comments.build], :remote => true,
-                                            :method => :post,
-                                            'data-type' => 'json',
-                                            :html => {:class => 'pure-form'} do |f| %>
-  <fieldset class="pure-group">
+<%= form_for [@creative, @creative.comments.build], :remote => :true,
+																										:method => :post,
+                                            				'data-type' => 'json',
+                                            				:html => {:class => 'pure-form'} do |f| %>
+  <fieldset>
     <%= f.text_area :body, :rows => 10 %>
   </fieldset>
-  <%= f.submit :class => "pure-button pure-button-success", :value => "Submit comment" %>
+  <%= f.submit :value => "Submit comment" %>
 <% end %>

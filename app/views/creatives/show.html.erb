@@ -33,3 +33,16 @@
 <%= link_to 'Edit', edit_creative_path(@creative) %> |
 <%= link_to 'Back', creatives_path %>
 
+<div class="creative" data-comments=<%= creative_comments_path(@creative) %>>
+  <% @creative.comments.each do |comment| %>
+    <%= comment.user.nickname %> <br>
+    <%= comment.body %><br>
+    <%= comment.created_at %>
+    <%= link_to 'Delete', creative_comment_path(comment.creative, comment), 
+        :method => :delete, :remote => true %>
+    <br>
+  <% end %>
+</div>
+ ___________________________
+<%= render 'comments/show' %>
+<%= render 'comments/form' %>

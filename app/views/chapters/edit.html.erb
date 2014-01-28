@@ -1,4 +1,4 @@
-<div>
+<div class="chapter">
   <h1>Редактирование главы</h1>
   <fieldset>
     <%= form_for @chapter, url: creative_chapter_path(@chapter.creative, @chapter) do |f| %>
@@ -18,9 +18,11 @@
       <div>
         <%= f.number_field :number %>
       </div>
-      <div>
-        <%= text_area_tag :body, @chapter.body %>
-      </div>
+        <div class='wmd-panel'>
+          <div id='wmd-button-bar' class="wmd-button-bar"></div>
+          <%= f.text_area :body,  :class => "wmd-input"%>
+        </div>
+        <div id="wmd-preview" class="wmd-preview" > </div>
       <div>
         <%= f.hidden_field :creative_id %>
       </div>

@@ -1,9 +1,6 @@
-<%= form_for [@creative, @creative.comments.build], :remote => :true,
+<%= form_for [@creative, @creative.comments.build], :remote => true,
 																										:method => :post,
-                                            				'data-type' => 'json',
-                                            				:html => {:class => 'pure-form'} do |f| %>
-  <fieldset>
-    <%= f.text_area :body, :rows => 10 %>
-  </fieldset>
-  <%= f.submit :value => "Submit comment" %>
+                                            				'data-type' => 'json' do |f| %>
+    <%= f.text_area :body %>
+  <%= f.submit :value => "Submit comment", :type => "submit" %>
 <% end %>

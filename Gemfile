@@ -21,6 +21,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'foundation-rails'
+gem "redcarpet"
+gem 'pagedown-rails', '~> 1.1.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -33,6 +35,7 @@ end
 
 group :development do
  gem 'better_errors'
+ gem 'annotate'
 end
 
 # Use ActiveModel has_secure_password

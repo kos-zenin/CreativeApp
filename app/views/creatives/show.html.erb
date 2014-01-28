@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<div class="creative" data-comments=<%= creative_comments_path(@creative) %>>
+
+
 <p>
   <strong>Name:</strong>
   <%= @creative.name %>
@@ -20,29 +25,21 @@
 
 
 <h1>Listing chapters</h1>
-
+  <div class="chapter-content">
     <% @creative.chapters.each do |chapter| %>
-      <fieldset>
+    <div class=<%= "chapter_#{chapter.id}" %>>
         <h3><%= chapter.name %></h3>
-        <p><%= chapter.body %></p>
+        <div class="markdown-source" id="markdown-source"><%= chapter.body %></div>
+        <div class="chapter-body"></div>
         	<%= link_to 'Edit', edit_creative_chapter_path(@creative, chapter) %> |
         	<%= link_to 'Destroy', creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: 'Are you sure?' } %>
-     </fieldset>
-    <% end %>
 
+    <% end %>
+  </div>
+  </div>
 <%= link_to 'Edit', edit_creative_path(@creative) %> |
 <%= link_to 'Back', creatives_path %>
 
-<div class="creative" data-comments=<%= creative_comments_path(@creative) %>>
-  <% @creative.comments.each do |comment| %>
-    <%= comment.user.nickname %> <br>
-    <%= comment.body %><br>
-    <%= comment.created_at %>
-    <%= link_to 'Delete', creative_comment_path(comment.creative, comment), 
-        :method => :delete, :remote => true %>
-    <br>
-  <% end %>
-</div>
- ___________________________
+
 <%= render 'comments/show' %>
 <%= render 'comments/form' %>

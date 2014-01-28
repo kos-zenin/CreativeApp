@@ -1,6 +1,5 @@
-<div>
+<div class='chapter'>
   <h1>Новая глава</h1>
-  <fieldset>
     <%= form_for @chapter, url: creative_chapters_path do |f| %>
       <% if @chapter.errors.any? %>
         <div id="error_explanation">
@@ -14,11 +13,13 @@
       <% end %>
         <%= f.text_field :name, :placeholder => "Имя главы" %>
         <%= f.number_field :number %>
-        <%= text_area_tag :body, @chapter.body %>
+        <div class='wmd-panel'>
+          <div id='wmd-button-bar' class="wmd-button-bar"></div>
+          <%= f.text_area :body,  :class => "wmd-input"%>
+        </div>
+        <div id="wmd-preview" class="wmd-preview" > </div>
         <%= f.hidden_field :creative_id %>
         <button type="submit">Сохранить </button>
     <% end %>
-  </fieldset>
 </div>
-
 <%= link_to 'Back', creative_path(@chapter.creative) %>

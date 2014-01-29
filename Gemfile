@@ -36,6 +36,7 @@ end
 group :development do
  gem 'better_errors'
  gem 'annotate'
+ gem 'pry'
 end
 
 # Use ActiveModel has_secure_password

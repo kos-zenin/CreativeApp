@@ -9,6 +9,6 @@ class CommentSerializer < ActiveModel::Serializer
     object.updated_at.to_formatted_s(:short)
   end
   def delete_link
-  	
+		ActionController::Base.helpers.link_to 'delete', creative_comments_path({id: object.id}), method: :delete		
   end
 end

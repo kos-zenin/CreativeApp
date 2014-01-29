@@ -2,10 +2,11 @@ $(function() {
   if ($('.creative').length) {
     var source   = $("#comment_template").html();
     var template = Handlebars.compile(source);
+    getComments();
   $('form').on('ajax:success',
     function(e, data, textStatus, jqXHR) {
-      getComments();
       $('form')[0].reset();
+      getComments();
   });
   }
 

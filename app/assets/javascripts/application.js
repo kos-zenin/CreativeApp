@@ -4,6 +4,10 @@
 //= require comments
 //= require markdown
 //= require foundation
+//= require jquery-fileupload
+//= require picture
+//= require_tree
+
 
 
 $(function(){ 

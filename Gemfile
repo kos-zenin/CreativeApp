@@ -25,6 +25,8 @@ gem "redcarpet"
 gem 'pagedown-rails', '~> 1.1.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'carrierwave'
+gem 'jquery-fileupload-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem "active_model_serializers", "~> 0.8.0"
@@ -37,6 +39,7 @@ group :development do
  gem 'better_errors'
  gem 'annotate'
  gem 'pry'
+ gem 'binding_of_caller'
 end
 
 # Use ActiveModel has_secure_password

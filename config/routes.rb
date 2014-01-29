@@ -1,9 +1,11 @@
 CreativesApp::Application.routes.draw do
   
 
+ 
   resources :creatives do
     resources :chapters
     resource :comments
+    resources :pictures
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

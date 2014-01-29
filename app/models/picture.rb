@@ -16,7 +16,7 @@ class Picture < ActiveRecord::Base
 	  {
 	    "name" => read_attribute(:file),
 	    "size" => file.size,
-	    "thumbnail_url" => file.url,
+	    "thumbnail_url" => file.thumb.url,
 	    "delete_url" => "/creatives/#{creative_id}/pictures/#{id}",
 	    "delete_type" => "DELETE"
 	  }

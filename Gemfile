@@ -27,6 +27,7 @@ gem 'pagedown-rails', '~> 1.1.3'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'jquery-fileupload-rails'
+gem 'rmagick'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem "active_model_serializers", "~> 0.8.0"

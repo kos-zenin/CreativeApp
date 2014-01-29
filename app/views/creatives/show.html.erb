@@ -38,8 +38,17 @@
 <%= link_to 'Back', creatives_path %>
 
 
+<% unless @creative.pictures.empty? %>
+  <ul class="clearing-thumbs" data-clearing>
+    <% @creative.pictures.each do |picture| %>
+      <li><a class="th" href="<%= picture.file.url%>"><img src="<%= picture.file.thumb.url%>"></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> No images :( </p>
+<% end %>
 
-<%= link_to "Download Picture", creative_pictures_path(@creative) %>
+<%= link_to "Manage Pictures", creative_pictures_path(@creative) %>
 
 
 <%= render 'comments/show' %>

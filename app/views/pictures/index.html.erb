@@ -1,32 +1,12 @@
 <%= form_for @picture, :url => creative_pictures_path, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
-  <noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
   <div class="row fileupload-buttonbar">
-    <div class="medium-8 columns">
-      <span class="button fileinput-button success">
+      <span class="button fileinput-button secondary">
         <span>Add files...</span>
-        <%= f.file_field :file, multiple: true, id: 'upload-field' %>
+          <%= f.file_field :file, multiple: true, id: 'upload-field' %>
       </span>
-      <button type="submit" class="button">
-        <span>Start upload</span>
-      </button>
-      <button type="reset" class="btn alert">
-        <span>Cancel upload</span>
-      </button>
-      <button type="button" class="button alert">
-        <span>Delete</span>
-      </button>
-      <input type="checkbox" class="toggle">
-      <span class="fileupload-loading"></span>
-    </div>    
   </div>
-  <div class="medium-4 columns fileupload-progress fade">
-    <div class="progress large-12 success round">
-                  <span class="bar meter" style="width:0%"></span>
-                </div>
-    <div class="progress-extended">&nbsp;</div>
-  </div>
-  <div class="medium-12 columns">
-          <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+    <div class="medium-12 columns">
+      <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
   </div>
 <% end %>
 
@@ -66,7 +46,6 @@
     {% } %}
     <td class="cancel">{% if (!i) { %}
       <button class="btn btn-warning">
-        <i class="icon-ban-circle icon-white"></i>
         <span>{%=locale.fileupload.cancel%}</span>
       </button>
       {% } %}</td>
@@ -96,7 +75,6 @@
         <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
           <span>{%=locale.fileupload.destroy%}</span>
         </button>
-        <input type="checkbox" name="delete" value="1">
       </td>
     </tr>
     {% } %}

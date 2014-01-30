@@ -2,14 +2,10 @@
 //= require jquery_ujs
 //= require handlebars-v1.3.0
 //= require comments
+//= require pictures
 //= require markdown
-//= require foundation
+//= require markdown.converter
+//= require markdown.sanitizer
+//= require markdown.editor
 //= require jquery-fileupload
-//= require picture
-//= require_tree
-
-
-
-$(function(){ 
-	$(document).foundation(); 
-});
+//= require foundation

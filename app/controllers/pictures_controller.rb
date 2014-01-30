@@ -52,6 +52,6 @@ class PicturesController < ApplicationController
       @picture = Picture.find(params[:id])
     end
     def picture_params
-      params.require(:picture).permit(:file)
+        params.require(:picture).permit(:file)
     end
 end

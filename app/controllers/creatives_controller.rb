@@ -1,7 +1,6 @@
 class CreativesController < ApplicationController
-  before_action :set_creative, only: [:show, :edit, :update, :destroy]
+  before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read]
   before_filter :authenticate_user!, :except => [:show, :index]
-  skip_before_filter :verify_authenticity_token 
 
   # GET /creatives
   # GET /creatives.json
@@ -36,6 +35,14 @@ class CreativesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @creative.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def reorder
+    chapter_ids = params[:sorted].split(',')
+    chapter_ids.each_with_index do |chapter_id, i|
+      chapter = Chapter.find(section_id)
+      chapter.update_attribute(:number, i)
     end
   end
 

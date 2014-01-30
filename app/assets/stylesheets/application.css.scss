@@ -10,3 +10,23 @@
 .main-row {
     max-width:1500px !important;
 }
+.chapter-drag {
+    heigth: 600px;
+}
+
+.chapter-item {
+    width: 200px;
+    height: 300px;
+    position: relative
+}
+
+
+.th.chapter-item {
+  height: 280px;
+  display: block;
+}
+
+.bottom-button {
+    position: absolute;
+    bottom: 0;
+}

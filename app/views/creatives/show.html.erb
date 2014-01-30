@@ -1,41 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <div class="creative" data-comments=<%= creative_comments_path(@creative) %>>
-
-
-<p>
-  <strong>Name:</strong>
-  <%= @creative.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @creative.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @creative.user_id %>
-</p>
-
-
-<%= link_to 'Add Chapter', new_creative_chapter_path(@creative) %>
-
-
-<h1>Listing chapters</h1>
-    <% @creative.chapters.each do |chapter| %>
-      <div class=<%= "chapter_#{chapter.id}" %>>
-        <h3><%= chapter.name %></h3>
-        <div class="markdown-source"><%= chapter.body %></div>
-        <div class="chapter-body"></div>
-        	<%= link_to 'Edit', edit_creative_chapter_path(@creative, chapter) %> |
-        	<%= link_to 'Destroy', creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <legend align="center">
+    <h2>
+      <%= @creative.name %>
+    </h2>
+  </legend>
+  <span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span>
+  <fieldset class="medium-12 columns">
+    <%= @creative.description %>
+  </fieldset>
+  <br><br><br>
+  <div class="row">
+    <div class="right">
+      <% if @creative.author?(current_user) %>
+        <%= link_to "New Chapter", new_creative_chapter_path(@creative), :class => "small button"  %>
+        <%= link_to "Edit", edit_creative_path(@creative), :class => "small button"  %>
+      <% end %>
+    </div>
+    <div>
+      <div id="sortable-grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-5" data-url="<%= reorder_path(@creative) %>">
+        <% @creative.chapters.each do |chapter| %>
+          <li id="<%= chapter.id %>">
+            <div class="th chapter-item">
+              <div class="panel chapter-item">
+                  <p><%= chapter.number%>. <%= chapter.name%></p>
+                  <p class="markdown-source"><%= chapter.body.slice(0..100) + "..." %></p>
+                  <% if @creative.author?(current_user) %>
+                    <ul class="button-group radius bottom-button">
+                       <li><%= link_to "edit", edit_creative_chapter_path(@creative, chapter), :class => "tiny button" %></li>
+                       <li><%= link_to "delete", creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: "are you sure?" }, :class => "tiny button alert" %></li>
+                    </ul>
+                  <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
       </div>
-    <% end %>
-<%= link_to 'Edit', edit_creative_path(@creative) %> |
-<%= link_to 'Back', creatives_path %>
+    </div>
+  </div>
+
+  <br><br><br><br>
 
 
 <% unless @creative.pictures.empty? %>
@@ -47,9 +52,8 @@
 <% else %>
   <p> No images :( </p>
 <% end %>
-
+<br>
 <%= link_to "Manage Pictures", creative_pictures_path(@creative) %>
-
-
+<br><br><br><br>
 <%= render 'comments/show' %>
 <%= render 'comments/form' %>

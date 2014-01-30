@@ -9,7 +9,9 @@ class Picture < ActiveRecord::Base
 	    "size" => file.size,
 	    "url" => file.url,
 	    "delete_url" => "/creatives/#{creative_id}/pictures/#{id}",
-	    "delete_type" => "DELETE"
+	    "delete_type" => "DELETE",
+	   	"edit_url" => "/creatives/#{creative_id}/pictures/#{id}/edit",
+	    "edit_type" => "GET"
 	  }
 	end
 	def to_jq_download
@@ -18,7 +20,9 @@ class Picture < ActiveRecord::Base
 	    "size" => file.size,
 	    "thumbnail_url" => file.thumb.url,
 	    "delete_url" => "/creatives/#{creative_id}/pictures/#{id}",
-	    "delete_type" => "DELETE"
+	    "delete_type" => "DELETE",
+	    "edit_url" => "/creatives/#{creative_id}/pictures/#{id}/edit",
+	    "edit_type" => "GET"
 	  }
 	end
 end

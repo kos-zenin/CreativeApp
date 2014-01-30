@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require handlebars-v1.3.0
 //= require comments
 //= require pictures

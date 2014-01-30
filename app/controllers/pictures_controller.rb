@@ -46,6 +46,8 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def edit
+  end
 
   private
     def set_picture

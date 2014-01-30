@@ -28,7 +28,7 @@
     <% @creative.chapters.each do |chapter| %>
       <div class=<%= "chapter_#{chapter.id}" %>>
         <h3><%= chapter.name %></h3>
-        <div class="markdown-source" id="markdown-source"><%= chapter.body %></div>
+        <div class="markdown-source"><%= chapter.body %></div>
         <div class="chapter-body"></div>
         	<%= link_to 'Edit', edit_creative_chapter_path(@creative, chapter) %> |
         	<%= link_to 'Destroy', creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: 'Are you sure?' } %>

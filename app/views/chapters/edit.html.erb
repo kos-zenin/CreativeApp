@@ -18,11 +18,33 @@
       <div>
         <%= f.number_field :number %>
       </div>
-        <div class='wmd-panel'>
-          <div id='wmd-button-bar' class="wmd-button-bar"></div>
-          <%= f.text_area :body,  :class => "wmd-input"%>
+      <div class='wmd-panel medium-6 columns'>
+        <div id='wmd-button-bar' class="wmd-button-bar"></div>
+        <%= f.text_area :body,  :class => "wmd-input"%>
+      </div>
+
+
+      <dl class="tabs medium-6 columns" data-tab>
+        <dd class="active"><a href="#panel2-1">Preview</a></dd>
+        <dd><a href="#panel2-2">Add Image</a></dd>
+      </dl>
+      <div class="tabs-content medium-6 columns">
+        <div class="content active" id="panel2-1">
+          <div id="wmd-preview" class="wmd-preview" > </div>
         </div>
-        <div id="wmd-preview" class="wmd-preview" > </div>
+        <div class="content" id="panel2-2">
+          <% unless @chapter.creative.pictures.empty? %>
+            <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
+              <% @chapter.creative.pictures.each do |picture| %>
+                <img class ="addimagebutton" src="<%= picture.file.thumb.url%>" url="<%= picture.file.url%>">
+              <% end %>
+            </ul>
+          <% else %>
+            <p> No images :( </p>
+          <% end %>
+        </div>
+      </div>
+
       <div>
         <%= f.hidden_field :creative_id %>
       </div>

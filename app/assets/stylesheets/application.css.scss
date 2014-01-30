@@ -6,3 +6,7 @@
  *= require markdown
  */
 @import "jquery.fileupload-ui";
+
+.main-row {
+    max-width:1500px !important;
+}

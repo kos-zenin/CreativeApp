@@ -1,0 +1,145 @@
+ru:
+  hello: "Привет, мир!"
+  menu: "Меню"
+  logout: "Выход"
+  login: "Вход"
+  users: "Все пользователи"
+  sign_up: "Регистрация"
+  edit_account: "Редактировать аккаунт"
+  edit: "Редактировать"
+  are_you_sure: "Вы уверены?"
+  back: "Назад"
+  comments:
+    create:
+      thank: "Спасибо за комментарий"
+    time: "%{time_ago} назад"
+    comments:
+      comment:
+        are_you_sure: "Вы уверены?"
+  pictures:
+    index:   
+      maxFileSize: 'Файл слишком велик'
+      minFileSize: 'Файл слишком мал'
+      acceptFileTypes: 'Это тип файла не разрешен'
+      maxNumberOfFiles: 'Превышено максимальное количество файлов'
+      uploadedBytes: 'Ошибка при загрузке'
+      emptyResult: 'Пустой файл'
+  creatives:
+    title: "Креативы"
+    index:
+      show: "Открыть"
+      read: "Читать"
+      are_you_sure: "Вы уверены?"
+    new:
+      title: "Новый креатив"
+      create: "Создать"
+      back: "Вернуться к Креативам"
+    show:
+      no_pictures: "Нет изображений"
+      no_comments: "Нет комментариев"
+      comments: "Комментарии"
+      add: "Добавить комментарий"
+      read: "Режим чтения"
+      please_comment: "Добавьте свой комментарий:"
+      edit: "Редактировать креатив"
+      destroy: "Удалить"
+      add_section: "Добавить главу"
+      edit_s: "Редактировать главу"
+      destroy_s: "Удалить"
+      addedit-pictures: "Добавить / редактировать изображения"
+    reorder:
+      reordered: "Порядок глав изменен"
+    read:
+      chapters: "Главы"
+    create:
+      created_notice: "Креатив успешно создан"
+  activerecord:
+    models:
+      creative: "Креатив"
+      user: "Учетная запись"
+      userr: "учетную запись"
+    attributes:
+      creative:
+        name: "Название"
+        description: "Краткое описание"
+      user:
+        email: "E-mail"
+        user_name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        remember_me: "Запомнить меня"
+        confirmation_token: "Код подтверждения"
+        reset_password_token: "Код восстановления пароля"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "не может быть пустым"
+              invalid: "введен неверно"
+              taken: "уже занят"
+            confirmation_token:
+              invalid: "неверен"
+            reset_password_token:
+                invalid: "неверен"
+            current_password:
+              blank: "не может быть пустым"
+            password:
+              blank: "не может быть пустым"
+            password_confirmation:
+              blank: "не может быть пустым"
+  datetime:
+    distance_in_words:
+      half_a_minute: "пол минуты"
+      less_than_x_seconds:
+        one:   "менее 1 секунды"
+        other: "менее %{count} секунд"
+      x_seconds:
+        one:   "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one:   "менее минуты"
+        other: "менее %{count} минут"
+      x_minutes:
+        one:   "1 минута"
+        other: "%{count} минут"
+      about_x_hours:
+        one:   "около 1 часа"
+        other: "около %{count} часов"
+      x_days:
+        one:   "1 день"
+        other: "%{count} дней"
+      about_x_months:
+        one:   "около 1 месяца"
+        other: "около %{count} months"
+      x_months:
+        one:   "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one:   "около 1 year"
+        other: "около %{count} years"
+      over_x_years:
+        one:   "over 1 year"
+        other: "over %{count} years"
+      almost_x_years:
+        one:   "почти год"
+        other: "почти %{count} лет"
+    prompts:
+      year:   "Год"
+      month:  "Месяц"
+      day:    "День"
+      hour:   "Час"
+      minute: "Минута"
+      second: "Секунда"
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Пожалуйста выберите"
+
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: 'Создать %{model}'
+      update: 'Обновить %{model}'
+      submit: 'Сохранить %{model}'

@@ -4,7 +4,6 @@
       {% if (file.error) { %}
         <td></td>
         <td class="name"><span>{%=file.name%}</span></td>
-        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
         <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
         {% } else { %}
         <td class="preview">{% if (file.thumbnail_url) { %}
@@ -17,7 +16,7 @@
         <td colspan="2"></td>
         {% } %}
       <td class="delete">
-        <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+        <button class="button button-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
           <span>{%=locale.fileupload.destroy%}</span>
         </button>
       </td>

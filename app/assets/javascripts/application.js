@@ -4,6 +4,7 @@
 //= require comments
 //= require pictures
 //= require markdown
+//= require chapters
 //= require markdown.converter
 //= require markdown.sanitizer
 //= require markdown.editor

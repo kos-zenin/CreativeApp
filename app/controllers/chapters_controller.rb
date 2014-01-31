@@ -15,6 +15,7 @@ class ChaptersController < ApplicationController
   end
   def create
     @chapter = Chapter.new(chapter_params)
+    @chapter.number = @chapter.creative.chapters.count + 1;
 
       if @chapter.save
         redirect_to @chapter.creative, notice: 'Chapter successfully created'

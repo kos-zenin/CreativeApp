@@ -15,10 +15,10 @@
         <% @chapters.each do |chapter| %>
           <li id="<%= chapter.id %>">
               <div class="th panel chapter-item">
-              <ul class='button-group'>
+              <ul class='button-group right'>
                 <% if @creative.author?(current_user) %>
-                  <%= link_to "", creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: "are you sure?" }, :class => "foundicon-remove right" %>
-                  <%= link_to "", edit_creative_chapter_path(@creative, chapter), :class => "foundicon-edit right" %>
+                  <%= link_to "", creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: "are you sure?" }, :class => "foundicon-remove" %>
+                  <%= link_to "", edit_creative_chapter_path(@creative, chapter), :class => "foundicon-edit" %>
                 <% end %>
               </ul>
                   <p><b><%= chapter.name%></b></p>

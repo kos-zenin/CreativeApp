@@ -1,5 +1,10 @@
 <div class='chapter'>
-  <h1>Новая глава</h1>
+<div>
+  <h1>
+      <%= link_to '', creative_path(@chapter.creative), :class=> "foundicon-left-arrow" %>
+      Новая глава</h1>
+</div>
+      <fieldset>
     <%= form_for @chapter, url: creative_chapters_path do |f| %>
       <% if @chapter.errors.any? %>
         <div id="error_explanation">
@@ -12,14 +17,33 @@
         </div>
       <% end %>
         <%= f.text_field :name, :placeholder => "Имя главы" %>
-        <%= f.number_field :number %>
-        <div class='wmd-panel'>
-          <div id='wmd-button-bar' class="wmd-button-bar"></div>
-          <%= f.text_area :body,  :class => "wmd-input"%>
+      <div class='wmd-panel medium-6 columns'>
+        <div id='wmd-button-bar' class="wmd-button-bar"></div>
+        <%= f.text_area :body,  :class => "wmd-input"%>
+      </div>
+      <dl class="tabs medium-6 columns" data-tab>
+        <dd class="active"><a href="#preview">Preview</a></dd>
+        <dd><a href="#add_image">Add Image</a></dd>
+      </dl>
+      <div class="tabs-content medium-6 columns">
+        <div class="content active" id="preview">
+          <div id="wmd-preview" class="wmd-preview" > </div>
         </div>
-        <div id="wmd-preview" class="wmd-preview" > </div>
+        <div class="content" id="add_image">
+          <% unless @chapter.creative.pictures.empty? %>
+            <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
+              <% @chapter.creative.pictures.each do |picture| %>
+                <img class ="addimagebutton th" src="<%= picture.file.thumb.url%>" url="<%= picture.file.url%>">
+              <% end %>
+            </ul>
+          <% else %>
+            <p> No images :( </p>
+          <% end %>
+        </div>
+      </div>
+  </fieldset>
         <%= f.hidden_field :creative_id %>
-        <button type="submit">Сохранить </button>
+        <button type="submit" class="success">Сохранить </button>
     <% end %>
 </div>
-<%= link_to 'Back', creative_path(@chapter.creative) %>
+

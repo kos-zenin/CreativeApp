@@ -15,6 +15,8 @@ class Creative < ActiveRecord::Base
 	has_many :comments
 	has_many :pictures, :inverse_of  => :creative
   belongs_to :user
+  has_many :tags, :through => :taggings
+	has_many :taggings, :as => :taggable
 
 	def author?(user)
     self.user == user

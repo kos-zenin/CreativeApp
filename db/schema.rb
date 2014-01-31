@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129092408) do
+ActiveRecord::Schema.define(version: 20140131163746) do
 
   create_table "chapters", force: true do |t|
     t.string   "name"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 20140129092408) do
     t.datetime "updated_at"
     t.integer  "creative_id"
     t.string   "file"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

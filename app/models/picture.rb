@@ -1,5 +1,7 @@
 class Picture < ActiveRecord::Base
 	belongs_to :creative, :inverse_of  => :pictures
+	has_many :tags, :through => :taggings
+	has_many :taggings, :as => :taggable
 
 	mount_uploader :file, FileUploader
 

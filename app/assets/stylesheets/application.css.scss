@@ -14,7 +14,7 @@
 
 .chapter-item {
     height: 300px;
-    position: relative;
+    display: block;
     overflow: hidden;
 }
 
@@ -23,8 +23,15 @@
   height: 305px;
   display: block;
 }
-
-.bottom-button {
-    position: absolute;
-    bottom: 0;
+.foundicon-tools {
+	color: black;
+}
+.foundicon-trash {
+	color: #f04124;
+	}
+.foundicon-add-doc {
+	color: black;
+}
+.foundicon-edit {
+	color: black;
 }

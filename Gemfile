@@ -29,6 +29,7 @@ gem 'carrierwave'
 gem 'jquery-fileupload-rails'
 gem 'rmagick'
 gem 'sisyphus-rails'
+gem 'best_in_place'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem "active_model_serializers", "~> 0.8.0"

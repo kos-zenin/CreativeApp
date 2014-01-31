@@ -21,7 +21,7 @@
       </div>
       <div class='wmd-panel medium-6 columns'>
         <div id='wmd-button-bar' class="wmd-button-bar"></div>
-        <%= f.text_area :body,  :class => "wmd-input"%>
+        <%= f.text_area :body,  :class => "wmd-input", :onchange => "submit"%>
       </div>
 
 
@@ -49,4 +49,4 @@
         <%= f.hidden_field :creative_id %>
         <button type="submit" class="success foundicon-checkmark"> Сохранить </button>
     <% end %>
-</div>
+</div>  

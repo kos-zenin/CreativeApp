@@ -14,3 +14,5 @@ $ ->
     $("form").on "ajax:success", (e, data, textStatus, jqXHR) ->
       $("form")[0].reset()
       getComments()
+  $(".wmd-input").onchange = ->
+    alert 1

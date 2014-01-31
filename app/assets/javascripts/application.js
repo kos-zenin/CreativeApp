@@ -11,3 +11,8 @@
 //= require markdown.editor
 //= require jquery-fileupload
 //= require foundation
+
+
+$(function() {
+  $(".editable").editable();
+});

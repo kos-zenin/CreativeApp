@@ -1,39 +1,29 @@
-<p id="notice"><%= notice %></p>
-
 <div class="creative" data-comments=<%= creative_comments_path(@creative) %>>
-  <legend align="center">
-    <h2>
-      <%= @creative.name %>
-    </h2>
-  </legend>
+
   <span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span>
   <fieldset class="medium-12 columns">
-    <%= @creative.description %>
+    <legend>
+      <h2><%= @creative.name %></h2>
+    </legend>
+    <h1 class="editable"><%= @creative.description %></h1>
   </fieldset>
+    <%= link_to "", new_creative_chapter_path(@creative), :class => "foundicon-plus right" if  @creative.author?(current_user) %>
   <br><br><br>
   <div class="row">
-    <div class="right">
-      <% if @creative.author?(current_user) %>
-        <%= link_to "New Chapter", new_creative_chapter_path(@creative), :class => "small button"  %>
-        <%= link_to "Edit", edit_creative_path(@creative), :class => "small button"  %>
-      <% end %>
-    </div>
     <div>
-      <div id="sortable-grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-5" data-url="<%= reorder_path(@creative) %>">
-        <% @creative.chapters.each do |chapter| %>
+      <div id="sortable-grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-url="<%= reorder_path(@creative) %>">
+        <% @chapters.each do |chapter| %>
           <li id="<%= chapter.id %>">
-            <div class="th chapter-item">
-              <div class="panel chapter-item">
-                  <p><%= chapter.number%>. <%= chapter.name%></p>
-                  <p class="markdown-source"><%= chapter.body.slice(0..100) + "..." %></p>
-                  <% if @creative.author?(current_user) %>
-                    <ul class="button-group radius bottom-button">
-                       <li><%= link_to "edit", edit_creative_chapter_path(@creative, chapter), :class => "tiny button" %></li>
-                       <li><%= link_to "delete", creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: "are you sure?" }, :class => "tiny button alert" %></li>
-                    </ul>
-                  <% end %>
-              </div>
-            </div>
+              <div class="th panel chapter-item">
+              <ul class='button-group'>
+                <% if @creative.author?(current_user) %>
+                  <%= link_to "", creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: "are you sure?" }, :class => "foundicon-remove right" %>
+                  <%= link_to "", edit_creative_chapter_path(@creative, chapter), :class => "foundicon-edit right" %>
+                <% end %>
+              </ul>
+                  <p><b><%= chapter.name%></b></p>
+                  <p class="markdown-source"><%= chapter.body + "..." %></p>
+                </div>
           </li>
         <% end %>
       </div>
@@ -53,7 +43,9 @@
   <p> No images :( </p>
 <% end %>
 <br>
-<%= link_to "Manage Pictures", creative_pictures_path(@creative) %>
+<div class="right">
+  <%= link_to "Manage Pictures", creative_pictures_path(@creative), :class => "small button" %>
+</div>
 <br><br><br><br>
 <%= render 'comments/show' %>
 <%= render 'comments/form' %>

@@ -6,23 +6,21 @@
  *= require markdown
  */
 @import "jquery.fileupload-ui";
+@import 'general_foundicons';
 
 .main-row {
     max-width:1500px !important;
 }
-.chapter-drag {
-    heigth: 600px;
-}
 
 .chapter-item {
-    width: 200px;
     height: 300px;
-    position: relative
+    position: relative;
+    overflow: hidden;
 }
 
 
 .th.chapter-item {
-  height: 280px;
+  height: 305px;
   display: block;
 }
 

@@ -2,11 +2,10 @@
   {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
       {% if (file.error) { %}
-        <td class="name"><span>name</span>
-        <td class="error" colspan="2"><span class="label label-important">error</span> {%=file.error%}</td>
+        <td class="error" colspan="2"><span class="label">error</span> {%=file.error%}</td>
         {% } else { %}
         <td class="preview">{% if (file.thumbnail_url) { %}
-          <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+          <a href="{%=file.url%}" rel="gallery"><img src="{%=file.thumbnail_url%}"></a>
           {% } %}</td>
         {% } %}
       <td class="edit">
@@ -15,7 +14,7 @@
         </button>
       </td>
       <td class="delete">
-        <button class="button alert">
+        <button class="button alert" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
           <span>delete</span>
         </button>
       </td>

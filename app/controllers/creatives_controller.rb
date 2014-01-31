@@ -11,6 +11,7 @@ class CreativesController < ApplicationController
   # GET /creatives/1
   # GET /creatives/1.json
   def show
+    @chapters = @creative.chapters.order(number: :asc)
   end
 
   # GET /creatives/new
@@ -41,9 +42,10 @@ class CreativesController < ApplicationController
   def reorder
     chapter_ids = params[:sorted].split(',')
     chapter_ids.each_with_index do |chapter_id, i|
-      chapter = Chapter.find(section_id)
+      chapter = Chapter.find(chapter_id)
       chapter.update_attribute(:number, i)
     end
+    render :nothing => true
   end
 
   # PATCH/PUT /creatives/1

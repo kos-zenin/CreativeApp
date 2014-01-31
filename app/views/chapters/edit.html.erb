@@ -25,18 +25,18 @@
 
 
       <dl class="tabs medium-6 columns" data-tab>
-        <dd class="active"><a href="#panel2-1">Preview</a></dd>
-        <dd><a href="#panel2-2">Add Image</a></dd>
+        <dd class="active"><a href="#preview">Preview</a></dd>
+        <dd><a href="#add_image">Add Image</a></dd>
       </dl>
       <div class="tabs-content medium-6 columns">
-        <div class="content active" id="panel2-1">
+        <div class="content active" id="preview">
           <div id="wmd-preview" class="wmd-preview" > </div>
         </div>
-        <div class="content" id="panel2-2">
+        <div class="content" id="add_image">
           <% unless @chapter.creative.pictures.empty? %>
             <ul class="small-block-grid-2 medium-block-grid-4 large-block-grid-6">
               <% @chapter.creative.pictures.each do |picture| %>
-                <img class ="addimagebutton" src="<%= picture.file.thumb.url%>" url="<%= picture.file.url%>">
+                <img class ="addimagebutton th" src="<%= picture.file.thumb.url%>" url="<%= picture.file.url%>">
               <% end %>
             </ul>
           <% else %>

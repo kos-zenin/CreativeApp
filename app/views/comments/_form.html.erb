@@ -2,5 +2,5 @@
 																										:method => :post,
                                             				'data-type' => 'json' do |f| %>
     <%= f.text_area :body %>
-  <%= f.submit :value => "Submit comment", :type => "submit" %>
+  <%= f.submit :value => "Submit comment", :type => "submit", :class => "small button alert" %>
 <% end %>

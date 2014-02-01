@@ -21,7 +21,7 @@ gem 'best_in_place'
 gem 'jbuilder', '~> 1.2'
 gem "active_model_serializers", "~> 0.8.0"
 gem 'camanjs-rails', git: 'git@github.com:ksz2k/camanjs-rails.git'
-gem 'thinking-sphinx'
+gem 'thinking-sphinx', '3.1.0'
 
 group :doc do
   gem 'sdoc', require: false

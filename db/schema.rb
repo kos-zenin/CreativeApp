@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140201155856) do
     t.datetime "updated_at"
     t.integer  "creative_id"
     t.string   "file"
-    t.boolean  "cropped"
+    t.boolean  "cropped",     default: false
   end
 
   create_table "taggings", force: true do |t|

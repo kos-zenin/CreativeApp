@@ -2,10 +2,10 @@
 <div>
   <h1>
       <%= link_to '', creative_path(@chapter.creative), :class=> "foundicon-left-arrow" %>
-      Редактирование главы</h1>
+      Редактирование главы<i class="foundicon-checkmark right"></i></h1> 
 </div>
   <fieldset>
-    <%= form_for @chapter, url: creative_chapter_path(@chapter.creative, @chapter) do |f| %>
+    <%= form_for @chapter, url: creative_chapter_path(@chapter.creative, @chapter), :remote => true do |f| %>
       <% if @chapter.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this chapter from being saved:</h2>
@@ -21,7 +21,7 @@
       </div>
       <div class='wmd-panel medium-6 columns'>
         <div id='wmd-button-bar' class="wmd-button-bar"></div>
-        <%= f.text_area :body,  :class => "wmd-input", :onchange => "submit"%>
+        <%= f.text_area :body,  :class => "wmd-input"%>
       </div>
 
 
@@ -47,6 +47,6 @@
       </div>
   </fieldset>
         <%= f.hidden_field :creative_id %>
-        <button type="submit" class="success foundicon-checkmark"> Сохранить </button>
+        <button type="submit" class=" hidden submit-chapter"> Сохранить </button>
     <% end %>
 </div>  

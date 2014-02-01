@@ -1,0 +1,26 @@
+<%= @picture.cropped ? (image_tag(@picture.file.url+".cropped.jpg", :id => "example")) : (image_tag(@picture.file.url, :id => "example")) %>
+<div id="Filters">
+  <div class="Filter">
+    <div class="FilterName">
+      <p><%= t('.brightness')%></p>
+    </div>
+    <div class="FilterSetting">
+      <input type="range" min="-100" max="100" step="1" value="0" data-filter="brightness">
+      <span class="FilterValue">0</span>
+    </div>
+  </div>
+  <div class="Filter">
+    <div class="FilterName">
+      <p><%= t('.contrast')%></p>
+    </div>
+    <div class="FilterSetting">
+      <input type="range" min="-100" max="100" step="1" value="0" data-filter="contrast" >
+      <span class="FilterValue">0</span>
+    </div>
+  </div>
+</div>
+  <button id="retouchpic">Ретушировать</button>
+  <%= form_for(@picture, :url => retouch_picture_path(@picture.creative, @picture), :remote => true) do |f| %>
+    <input name="image" type="hidden" id="image" value=""/>
+  <% end %>
+<%= javascript_include_tag "camanjs-custom" %>

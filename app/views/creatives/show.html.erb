@@ -1,4 +1,4 @@
-<div class="creative" data-comments=<%= creative_comments_path(@creative) %>>
+<div class="creative row" data-comments=<%= creative_comments_path(@creative) %>>
 
 
   <fieldset class="medium-12 columns">
@@ -6,9 +6,34 @@
       <h2><%= best_in_place_if @creative.author?(current_user), @creative, :name, :type => :input, :activator => "#editme"%><a id="editme" class="foundicon-edit right" href="#"></a></h2>
     </legend>
     <h1><%= best_in_place @creative, :description, :nil => "click me", :type => :textarea %></h1>
-      <span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span>
+    
+
+
+
+    <% if @creative.author?(current_user) %>
+      <%= form_for @creative, :remote => true do |f| %>
+      <ul>
+        <button class="foundicon-checkmark secondary right" type="submit"></button>
+        <%= f.text_field :tag_tokens, "data-pre" => @creative.tags.map(&:attributes).to_json %>
+      </ul>
+        <% end %>
+      <% else %>
+        <% @creative.tags.each do |tag| %>
+          <span class="label radius"><%= tag%></span>
+        <% end %>
+    <% end %>
+    
+
+
+
+
+
+    <span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span>
   </fieldset>
-    <h1><%= link_to "", new_creative_chapter_path(@creative), :class => "foundicon-add-doc" if  @creative.author?(current_user) %></h1>
+    <h1>
+    <%= link_to "", creatives_path, :class => "foundicon-left-arrow left" %>
+    <%= link_to "", new_creative_chapter_path(@creative), :class => "foundicon-add-doc" if  @creative.author?(current_user) %>
+    <%= link_to "read", read_creative_path(@creative), :class => "foundicon-right-arrow right" %></h1>
   <div class="row">
       <div id="sortable-grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-url="<%= reorder_path(@creative) %>">
         <% @chapters.each do |chapter| %>
@@ -20,7 +45,7 @@
                   <%= link_to "", creative_chapter_path(@creative, chapter), method: :delete, data: { confirm: "are you sure?" }, :class => "foundicon-trash" %>
                 <% end %>
               </ul>
-                  <p><b><%= chapter.name%></b></p>
+                  <p><b><%= link_to chapter.name, read_creative_path(@creative, :anchor => "chapter_#{chapter.number+1}"), :class => "black foundicon-right-arrow" %></h3></b></p>
                   <p class="markdown-source"><%= chapter.body + "..." %></p>
               </div>
           </li>

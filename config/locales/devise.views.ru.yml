@@ -35,9 +35,12 @@ ru:
       edit:
         are_you_sure: Вы уверены?
         cancel_my_account: Удалить учетную запись
-        leave_blank_if_you_don_t_want_to_change_it: оставьте поле пустым, если не хотите ничего менять
+        leave_blank_if_you_don_t_want_to_change_it: Оставьте поле пустым, если не хотите ничего менять
+        leave_blank_if_you_don_t_want_to_change_password: Оставьте поле пустым, если не хотите менять пароль
         title: Редактировать %{resource}
-        we_need_your_current_password_to_confirm_your_changes: введите текущий пароль для подтверждения изменений
+        we_need_your_current_password_to_confirm_your_changes: Введите текущий пароль для подтверждения изменений
+        update: Обновить
+        unhappy: Недовольны своей учетной записью?
       new:
         sign_up: Регистрация
     sessions:

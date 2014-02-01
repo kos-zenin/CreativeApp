@@ -1,19 +1,47 @@
+require 'RMagick'
+include Magick
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :crop]
 
+  # GET /pictures
+  # GET /pictures.json
   def index
     @creative = Creative.find(params[:creative_id])
-    @pictures = @creative.pictures.all
+    @pictures = @creative.pictures.load
     @picture = Picture.new
 
     respond_to do |format|
-      format.html
+      format.html # index.html.erb
+      # format.json { render json: @pictures }
       format.json { render json: @pictures.map{|pic| pic.to_jq_download } }
     end
   end
+
+  # GET /pictures/1
+  # GET /pictures/1.json
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @picture }
+    end
+  end
+
+  # GET /pictures/new
+  def new
+    @picture = Picture.new
+  end
+
+  # GET /pictures/1/edit
+  def edit
+  end
+
+  # POST /pictures
+  # POST /pictures.json
   def create
+    #binding.pry
     creative = Creative.find(params[:creative_id])
     @picture = creative.pictures.new(picture_params)
+
     respond_to do |format|
       if @picture.save
         format.html {
@@ -28,17 +56,44 @@ class PicturesController < ApplicationController
       end
     end
   end
+  def crop
+    par = picture_params_without_picture
+    target = Dir.pwd+"/public"+@picture.cropped_url
+    if par[:original] == "true"
+      source = Dir.pwd+"/public"+@picture.file.url
+      @picture.update_attribute(:cropped, true)
+    else
+      source = target
+    end
+    image=Image.read(source).first
+    new_image=image.crop!(par[:x].to_i,par[:y].to_i,par[:w].to_i,par[:h].to_i)
+    new_image.write(target)
+  end
+
+  def retouch
+    bytes = ActiveSupport::Base64.decode64(picture_params_without_picture[:image])
+    img   = Image.from_blob(bytes).first
+    target = Dir.pwd+"/public"+@picture.cropped_url
+    @picture.update_attribute(:cropped, true)
+    img.write(target)
+  end
+
+  # PATCH/PUT /pictures/1
+  # PATCH/PUT /pictures/1.json
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to creative_pictures_path(@picture.creative), notice: 'Picture was successfully updated.' }
+        format.js
       else
         format.html { render action: 'edit' }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
   end
+
+  # DELETE /pictures/1
+  # DELETE /pictures/1.json
   def destroy
     @picture.destroy
     respond_to do |format|
@@ -46,14 +101,21 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def edit
-  end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
     def set_picture
       @picture = Picture.find(params[:id])
     end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-        params.require(:picture).permit(:file)
+      #binding.pry
+      params.require(:picture).permit(:file, :tag_tokens, :x, :y, :w, :h)
+    end
+
+    def picture_params_without_picture
+      #binding.pry
+      params.permit(:id, :creative_id, :file, :tag_tokens, :x, :y, :w, :h,:original, :image)
     end
 end

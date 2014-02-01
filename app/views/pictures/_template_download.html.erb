@@ -1,23 +1,24 @@
 <script id="template-download" type="text/x-tmpl">
+
   {% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download fade">
+    <li class="template-download" style="text-align:center;">
       {% if (file.error) { %}
-        <td class="error" colspan="2"><span class="label">error</span> {%=file.error%}</td>
+        <p class="name"><span>{%=file.name%}</span></p>
+        <p class="size"><span>{%=o.formatFileSize(file.size)%}</span></p>
+        <p class="error" colspan="2"><span class="label alert">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</p>
         {% } else { %}
-        <td class="preview">{% if (file.thumbnail_url) { %}
-          <a rel="gallery"><img src="{%=file.thumbnail_url%}" class="th"></a>
-          {% } %}</td>
-        {% } %}
-      <td class="edit">
-        <button class="button secondary" data-type="{%=file.edit_type%}" data-url="{%=file.edit_url%}">
-          <span> Edit </span>
-        </button>
-      </td>
-      <td class="delete">
-        <button class="button alert" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
-          <span>delete</span>
-        </button>
-      </td>
-    </tr>
-    {% } %}
+        <p class="preview">
+          {% if (file.thumbnail_url) { %}
+          <a href="{%=file.edit_url%}">
+          <img class="th" src="{%=file.thumbnail_url%}"></a>
+          {% } %}
+        </p>
+        <p class="delete">
+          <button class="tiny secondary" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}" data-confirm="<%= t('are_you_sure')%>" >
+            <%= t('.removepic')%>
+          </button>
+        </p>
+       {% } %}
+    </li>
+  {% } %}
 </script>

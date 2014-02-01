@@ -1,27 +1,15 @@
 /*
  *= require_self
  *= require foundation_and_overrides
-
+ *= require token-input-facebook
  *= require_tree .
  *= require markdown
  */
 @import "jquery.fileupload-ui";
 @import 'general_foundicons';
 
-.main-row {
-    max-width:1500px !important;
-}
-.chapter-item {
-    height: 300px;
-    display: block;
-    overflow: hidden;
-}
-.th.chapter-item {
-  height: 305px;
-  display: block;
-}
 .foundicon-tools {
-	color: black;
+	color: gray;
 }
 .foundicon-trash {
 	color: #f04124;
@@ -32,8 +20,98 @@
 
 .foundicon-checkmark {
 	color: green;
-	display:none;
 }
 .hidden {
   display:none;
+}
+.black {
+  color: black;
+}
+
+label.right {
+  padding-right: 10px;
+}
+
+.chapter-drag {
+  heigth: 300px;
+}
+
+.chapter-item {
+  height:100%;
+}
+
+[class*="block-grid-"].main > li {
+  height: 300px;
+}
+
+.th.chapter-item {
+  height: 280px;
+  display: block;
+  overflow: hidden;
+}
+
+.clearing-thumbs {
+  margin-bottom:10px;
+}
+
+.fixed-my {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 40%;
+}
+
+.box-modal {
+  position: relative;
+  width: auto;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 0 0 6px rgba(153, 153, 153, .3);
+  border-radius: 6px;
+}
+.box-modal_close { position: absolute; right: 10px; top: 6px; font-size: 11px; line-height: 15px; color: #999; cursor: pointer; }
+.box-modal_close:hover { color: #666; }
+
+.FilterSetting input{
+  width:100%;
+}
+
+
+
+@media only screen and (max-width: 640px) {
+  .main-row {
+    max-width:600px !important;
+  }
+}
+
+// Medium screens
+@media only screen and (max-width: 800px) {
+  .main-row {
+    max-width:750px !important;
+  }
+}
+@media only screen and (max-width: 1022px) {
+  .main-row {
+    max-width:920px !important;
+  }
+}
+
+// Large screens
+@media only screen and (min-width: 1023px) {
+  .main-row {
+    max-width:950px !important;
+  }
+}
+
+@media only screen and (min-width: 1279px) {
+  .main-row {
+    max-width:1200px !important;
+  }
+}
+
+
+@media only screen and (min-width: 1440px) {
+  .main-row {
+    max-width:1400px !important;
+  }
 }

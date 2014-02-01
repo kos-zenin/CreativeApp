@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:ksz2k/camanjs-rails.git
+  revision: b1ad959909b27c3b1aafcf15c0686f9d0175b3a7
+  specs:
+    camanjs-rails (4.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,6 +102,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -164,6 +172,7 @@ DEPENDENCIES
   best_in_place
   better_errors
   binding_of_caller
+  camanjs-rails!
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
@@ -176,6 +185,7 @@ DEPENDENCIES
   mysql2
   pagedown-rails (~> 1.1.3)
   pry
+  quiet_assets
   rails (= 4.0.2)
   redcarpet
   rmagick

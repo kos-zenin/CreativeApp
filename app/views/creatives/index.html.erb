@@ -1,31 +1,36 @@
-<h1>Listing creatives</h1>
+<% content_for :title, @creative ? @creative.name : "Все кративы" %>
+<div class="row">
+  <div class="medium-12 columns">
+  <% if current_user %>
+  <%= link_to 'Новый креатив', new_creative_path, class: "button radius right" %>
+  <% end %>
+  <h1 align="center">Все креативы</h1>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @creatives.each do |creative| %>
-      <tr>
-        <td><%= creative.name %></td>
-        <td><%= creative.description %></td>
-        <td><%= creative.user_id %></td>
-        <td><%= link_to 'Show', creative %></td>
-        <td><%= link_to 'Edit', edit_creative_path(creative) %></td>
-        <td><%= link_to 'Destroy', creative, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Creative', new_creative_path %>
+  
+  <% @creatives.each do |creative| %>
+    <div class="medium-6 columns">
+      <div class="panel">      
+        <h3>
+          "<%= link_to creative.name, creative %>"
+        </h3>
+        Теги:
+        <% creative.tags.each do |tag| %>
+          <span class="label radius"><%= tag%></span>
+        <% end %>
+        <br/>
+        <%= creative.description %>
+          <p><%= creative.chapters.size %> глав</p>
+        <ul class="button-group radius">
+          <li><%= link_to t('.show'), creative, class: "small button success"%></li>
+          <%= link_to t('.read'), read_creative_path(creative, :anchor => "chapter_last"),:class => "small button success" %>
+                <% if creative.author?(current_user) %>
+          <li><%= link_to t('creatives.show.edit'), edit_creative_path(creative), class: "small button" %></li>
+          
+          <li><%= link_to t('creatives.show.destroy'), creative, :method => :delete, data: { confirm: t('.are_you_sure')}, :class => "small button alert" %></li>
+        <% end %>
+        </ul>
+      </div>          
+    </div>
+  <% end %>
+</div>

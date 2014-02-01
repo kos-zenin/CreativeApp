@@ -5,8 +5,6 @@ class ChaptersController < ApplicationController
   def index
     @chapters = Chapter.all
   end
-  def show
-  end
   def new
     @chapter = Chapter.new
     @chapter.creative_id = params[:creative_id]

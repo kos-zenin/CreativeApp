@@ -1,0 +1,32 @@
+<div id="home"></div>
+  <div data-magellan-expedition="fixed" align="center">
+    <dl class="sub-nav">
+    <div class="row">
+      <div class="large-9 large-centered medium-12 medium-centered column">
+        <dd><%= link_to 'Вернуться к креативу', creative_path(@creative), :class => "left" %></dd>
+        <dd>|</dd>
+        <dd data-magellan-arrival="home"><a href="#home">Наверх</a></dd>
+        <dd>|</dd>
+        <% @chapters.each do |chapter| %>
+          <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
+        <% end %>
+      </div>
+      </div>
+    </dl>
+</div>
+  <fieldset>
+    <legend align="center">
+      <h2>
+        <%= @creative.name %>
+      </h2>
+    </legend>
+    <p>
+      <%= t('.short_desc')%><%= @creative.description %>
+    </p>
+    <% @chapters.each do |chapter| %>
+      <fieldset>
+      <legend align="center" data-magellan-destination="chapter_<%= chapter.number+1 %>"><h3 id="chapter_<%= chapter.number+1 %>"><%= chapter.name %></h3></legend>
+        <p class="markdown-source"><%= chapter.body %></p>
+      </fieldset>
+    <% end %>
+  </fieldset>

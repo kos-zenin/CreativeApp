@@ -1,0 +1,13 @@
+var updatevalues;
+updatevalues = function(c) {
+  var par;
+  par = "?x=" + c.x + "&y=" + c.y + "&w=" + c.w + "&h=" + c.h;
+  $("#croppic").attr('data-params',par);
+};
+
+$("#pic_container_<%= @picture.id %>").html("<img id='target-<%= @picture.id%>'>");
+$('#target-<%= @picture.id %>').attr('src','<%= @picture.file.url%>'+".cropped.jpg?"+new Date())
+$('#target-<%= @picture.id %>').Jcrop({
+				      onChange:   updatevalues
+				    });
+$('#panel-ret-<%= @picture.id %>').html('<%= j render "ret" %>');

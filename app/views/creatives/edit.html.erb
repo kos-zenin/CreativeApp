@@ -1,6 +1,45 @@
-<h1>Editing creative</h1>
+<h1><%= t('.title')%></h1>
 
-<%= render 'form' %>
+<%= form_for(@creative) do |f| %>
+  <% if @creative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@creative.errors.count, "error") %> prohibited this creative from being saved:</h2>
 
-<%= link_to 'Show', @creative %> |
-<%= link_to 'Back', creatives_path %>
+      <ul>
+      <% @creative.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-3 columns">
+    <%= f.label :name, class: "right inline", title: "Name for Creative", data: {tooltip: true } %></div>
+    <div class="small-9 columns">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.label :description, class: "right inline", title: "Short description for Creative", data: {tooltip: true } %>
+    </div>
+    <div class="small-9 columns">
+      <%= f.text_area :description %>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="small-3 columns">
+    <label class="right inline"><%= t('tags')%></label>
+      </div>
+    <div class="small-9 columns">
+      <%= f.text_field :tag_tokens, :id => "creative_tag_tokens", "data-pre" => @creative.tags.map(&:attributes).to_json %> 
+  </div>
+  <div class="row">
+    <div class="small-9 small-offset-3 columns">
+      <button type="submit" class="tiny button success radius"><%= t('.create')%></button>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to t('.back'), creatives_path, :class => "small button secondary radius" %>

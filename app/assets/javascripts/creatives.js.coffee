@@ -3,8 +3,9 @@ $("#sortable-grid").sortable
 	update: (event, ui) ->
 	  sortedParams = "?sorted=" + $("#sortable-grid").sortable("toArray")
 	  $.post $("#sortable-grid").attr("data-url") + sortedParams, (data) ->
-	    escape data
+	    escape data	    
 $("#sortable-grid").disableSelection()
+
 jQuery ->
 	$(".best_in_place").best_in_place()
   

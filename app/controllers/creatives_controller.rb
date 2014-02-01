@@ -26,7 +26,7 @@ class CreativesController < ApplicationController
   # POST /creatives
   # POST /creatives.json
   def create
-    @creative = Creative.new(creative_params)
+    @creative = current_user.creatives.new(creative_params)
 
     respond_to do |format|
       if @creative.save
@@ -37,6 +37,9 @@ class CreativesController < ApplicationController
         format.json { render json: @creative.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def read
+    @chapters = @creative.chapters.order(number: :asc)
   end
 
   def reorder
@@ -80,6 +83,6 @@ class CreativesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def creative_params
-      params.require(:creative).permit(:name, :description, :user_id)
+      params.require(:creative).permit(:name, :description, :user_id, :tag_tokens)
     end
 end

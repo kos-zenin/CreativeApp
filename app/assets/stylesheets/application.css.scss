@@ -1,9 +1,8 @@
 /*
- *= require_self
  *= require foundation_and_overrides
  *= require token-input-facebook
- *= require_tree .
  *= require markdown
+ *= require_self
  */
 @import "jquery.fileupload-ui";
 @import 'general_foundicons';
@@ -54,11 +53,11 @@ label.right {
   margin-bottom:10px;
 }
 
-.fixed-my {
+.fixed-alert {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
-  width: 40%;
+  right:120px;
+  bottom: 70px;
+  width: 30%;
 }
 
 .box-modal {

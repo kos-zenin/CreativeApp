@@ -9,8 +9,8 @@
         <div class="form-group">
           <%= f.label :email %>
           <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
-          <%= f.label :user_name %>
-          <%= f.text_field :user_name, class: 'form-control' %>
+          <%= f.label :nickname %>
+          <%= f.text_field :nickname, class: 'form-control' %>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>

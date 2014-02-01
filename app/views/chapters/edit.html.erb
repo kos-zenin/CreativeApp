@@ -17,7 +17,7 @@
         </div>
       <% end %>
       <div>
-        <%= f.text_field :name, :placeholder => "Имя главы" %>
+        <%= f.text_field :name, :placeholder => "Имя главы", :required => "" %>
       </div>
 
       <div class="row">
@@ -37,7 +37,7 @@
   </fieldset>
         <%= f.hidden_field :creative_id %>
         <%= f.hidden_field :number %>
-        <button type="submit" class=" hidden submit-chapter"> Сохранить </button>
+        <button type="submit" class="submit-chapter success right foundicon-checkmark"> Сохранить </button>
     <% end %>
 </div>  
 

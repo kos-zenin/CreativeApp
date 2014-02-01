@@ -3,7 +3,7 @@
 
   <fieldset class="medium-12 columns">
     <legend>
-      <h2><%= best_in_place_if @creative.author?(current_user), @creative, :name, :type => :input, :activator => "#editme"%><a id="editme" class="foundicon-edit right" href="#"></a></h2>
+      <h2><%= best_in_place_if @creative.author?(current_user), @creative, :name, :type => :input, :required => true, :activator => "#editme"%><a id="editme" class="foundicon-edit right" href="#"></a></h2>
     </legend>
     <h1><%= best_in_place @creative, :description, :nil => "click me", :type => :textarea %></h1>
     

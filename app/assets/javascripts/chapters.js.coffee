@@ -2,8 +2,8 @@ $ ->
 	$(".wmd-input").bind "change keyup input", ->
 		delay (->
 			$('form.chapter_save').submit();
-			$(".foundicon-checkmark").fadeIn 5
-			$(".foundicon-checkmark").delay(1000).fadeOut 5
+			$("i.foundicon-checkmark").fadeIn 5
+			$("i.foundicon-checkmark").delay(1000).fadeOut 5
 	  ), 1000
 
 	delay = (->

@@ -26,7 +26,9 @@
     <% @chapters.each do |chapter| %>
       <fieldset>
       <legend align="center" data-magellan-destination="chapter_<%= chapter.number+1 %>"><h3 id="chapter_<%= chapter.number+1 %>"><%= chapter.name %></h3></legend>
-        <p class="markdown-source"><%= chapter.body %></p>
+        <% chapter.body.split(' ').each_with_index do |word, i| %>
+          <span class="<%= chapter.id%>_<%= i.to_s%> markdown-source"> <%= word %> </span>
+        <% end %>
       </fieldset>
     <% end %>
   </fieldset>

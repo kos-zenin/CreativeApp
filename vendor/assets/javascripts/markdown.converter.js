@@ -1172,8 +1172,9 @@ else
                 }
                 else if (/\S/.test(str)) {
                     str = _RunSpanGamut(str);
-                    str = str.replace(/^([ \t]*)/g, "<p>");
-                    str += "</p>"
+                    // commented to none <p> tags in reading mode to add id to each word
+                    //str = str.replace(/^([ \t]*)/g, "<p>");
+                    //str += "</p>"
                     grafsOut.push(str);
                 }
 

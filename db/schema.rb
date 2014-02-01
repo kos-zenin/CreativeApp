@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140201155856) do
 
   create_table "chapters", force: true do |t|
-    t.string   "name",    null: false
+    t.string   "name"
     t.integer  "number"
     t.text     "body"
     t.integer  "creative_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140201155856) do
   end
 
   create_table "comments", force: true do |t|
-    t.text     "body",    null: false
+    t.text     "body"
     t.integer  "user_id"
     t.integer  "creative_id"
     t.datetime "created_at"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140201155856) do
   end
 
   create_table "creatives", force: true do |t|
-    t.string   "name",    null: false
+    t.string   "name"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140201155856) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "creative_id"
-    t.string   "file",    null: false
+    t.string   "file"
     t.boolean  "cropped"
   end
 
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20140201155856) do
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "name",    null: false
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

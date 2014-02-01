@@ -105,7 +105,7 @@ ru:
         description: "Краткое описание"
       user:
         email: "E-mail"
-        user_name: "Имя"
+        nickname: "Имя"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"

@@ -55,7 +55,7 @@
     <% @creative.pictures.each do |picture| %>
       <li>
         <a class="th" href="<%= picture.cropped ? picture.cropped_url : picture.file.url %>">
-          <img data-caption="<%= tag_list(picture) %>" src="<%= picture.cropped ? picture.thumb_cropped_url : picture.file.thumb.url %>">
+          <img data-caption="<%= tag_list_raw(picture) %>" src="<%= picture.cropped ? picture.thumb_cropped_url : picture.file.thumb.url %>">
         </a>
       </li>
     <% end %>

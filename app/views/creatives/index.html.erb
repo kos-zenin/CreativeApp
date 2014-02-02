@@ -9,9 +9,7 @@
         <%= link_to "", edit_creative_path(creative), :class => "foundicon-edit right" %>
       <% end %>      
       <h3><%= link_to creative.name, creative %></h3>
-      <% creative.tags.each do |tag| %>
-        <span class="label radius"><%= tag%></span>
-      <% end %>
+      <%= tag_list(creative) %>
       <br/>
       <%= creative.description %>
       <p><%=t(".chapters")%> <%= creative.chapters.size %></p>

@@ -114,3 +114,19 @@ label.right {
     max-width:1400px !important;
   }
 }
+
+fieldset.mistakes{
+  border-color:#F00;
+  border-style: solid;
+}
+
+li.mistakes {
+  color: #f00;
+}
+li span {
+  color: black;
+}
+.mistake_text {
+  text-decoration:line-through;
+  color:gray;
+}

@@ -18,6 +18,9 @@
     <% end %>
     <h3><span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span></h3>
   </fieldset>
+  <% if @creative.author?(current_user) && @creative.mistakes.present? %>
+    <%= render 'mistake' %>
+  <% end %>
   <h1>
     <%= link_to "", creatives_path, :class => "foundicon-left-arrow left" %>
     <%= link_to "", new_creative_chapter_path(@creative), :class => "foundicon-add-doc" if  @creative.author?(current_user) %>

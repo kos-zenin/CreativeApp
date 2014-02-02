@@ -24,7 +24,7 @@ class CreativesController < ApplicationController
   end
 
   def mistake
-    @added_mistake = mistake_params[:mistake_text]
+    @creative.mistakes.create(mistake_params)
   end
 
   # POST /creatives

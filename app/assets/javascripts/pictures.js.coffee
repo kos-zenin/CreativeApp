@@ -55,3 +55,8 @@ $ ->
     $("#pic_container_" + id).html("<img id=\"target-"+id+"\">");
     $("#target-"+id).attr('src', url+"?"+new Date());
     $("#target-"+id).Jcrop onChange: updatevalues
+
+  $("#revert_original").click ->
+    url = $(this).attr('data-url')
+    $.post url, (data) ->
+      escape data

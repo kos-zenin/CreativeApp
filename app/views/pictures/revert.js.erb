@@ -6,9 +6,10 @@ updatevalues = function(c) {
 };
 
 $("#pic_container_<%= @picture.id %>").html("<img id='target-<%= @picture.id%>'>");
-$('#target-<%= @picture.id %>').attr('src','<%= @picture.cropped_url%>'+"?"+new Date())
+$('#target-<%= @picture.id %>').attr('src','<%= @picture.file.url%>'+new Date())
 $('#target-<%= @picture.id %>').Jcrop({
 				      onChange:   updatevalues
 				    });
-$('#croppic').attr('data-original','false');
+$('#croppic').attr('data-original','true');
 $('#retpicplace').html('<%= j render "ret" %>');
+alert("<%= t('.source_restored')%>")

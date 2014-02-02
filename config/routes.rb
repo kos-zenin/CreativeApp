@@ -13,6 +13,7 @@ CreativesApp::Application.routes.draw do
   get 'creatives/:id/read' => 'creatives#read', :as => :read_creative
   post 'creatives/:creative_id/pictures/:id/crop' => 'pictures#crop', :as => :crop_picture
   patch 'creatives/:creative_id/pictures/:id/retouch' => 'pictures#retouch', :as => :retouch_picture
+  post 'creatives/:creative_id/pictures/:id/revert' => 'pictures#revert', :as => :revert_original
   post 'creatives/:id/mistake' => 'creatives#mistake', :as => :mistake_creative
 
   devise_for :users, :controllers => {:registrations => "registrations"}

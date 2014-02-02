@@ -65,6 +65,8 @@ ru:
       comment:
         are_you_sure: "Вы уверены?"
   pictures:
+    revert:
+      source_restored: "Исходный файл восстановлен"
     index:   
       maxFileSize: 'Файл слишком велик'
       minFileSize: 'Файл слишком мал'
@@ -77,6 +79,7 @@ ru:
     template_download:
       removepic: "Удалить"
     edit:
+      revert_original: "Вернуться к оригиналу"
       title: "Редактировать изображение"
       ret: "Ретушь"
       crop: "Кадрирование"

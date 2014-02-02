@@ -10,7 +10,7 @@
         <% end %>      
         <h3><%= link_to creative.name, creative %></h3>
         <% creative.tags.each do |tag| %>
-          <span class="label radius"><h4><%= tag%></h4></span>
+          <span class="label radius"><%= tag%></span>
         <% end %>
         <br/>
         <%= creative.description %>

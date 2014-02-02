@@ -42,6 +42,7 @@ ru:
   retouchpic: "Ретушировать"
   mistakes: "Ошибки:"
   added: "Добавлено"
+  mistake_sent: "О данной ошибке будет сообщено автору"
   chapters:
     new: 
       new_chapter: "Новая глава"

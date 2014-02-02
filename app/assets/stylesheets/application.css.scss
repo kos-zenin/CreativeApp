@@ -95,3 +95,7 @@ li span {
   text-decoration:line-through;
   color:gray;
 }
+
+a:hover.label, a:focus.label {
+  background: white;
+}

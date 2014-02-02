@@ -11,7 +11,7 @@
 <div class="button-group">
     <p class="start">{% if (!o.options.autoUpload) { %}
       <button class="tiny">
-        <span>Загрузить</span>
+        <span><%=t("upload") %></span>
       </button>
       {% } %}</p>
     {% } else { %}
@@ -19,7 +19,7 @@
     {% } %}
     <p class="cancel">{% if (!i) { %}
       <button class="tiny alert">
-        <span>Отмена</span>
+        <span><%=t(".cancel") %></span>
       </button>
       {% } %}</p>
 </div>

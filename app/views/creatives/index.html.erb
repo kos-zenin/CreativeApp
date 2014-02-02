@@ -1,34 +1,22 @@
-<% content_for :title, @creative ? @creative.name : "Все кративы" %>
+<% content_for :title, @creative ? @creative.name : t(".all_creatives") %>
 <div class="row">
-  <div class="medium-12 columns">
-  <% if current_user %>
-  <%= link_to 'Новый креатив', new_creative_path, class: "button radius right" %>
-  <% end %>
-  <h1 align="center">Все креативы</h1>
-  </div>
-
-  
+  <h1><%= t(".all_creatives")%><%= link_to '', new_creative_path, class: "foundicon-plus" if current_user %></h1>
   <% @creatives.each do |creative| %>
     <div class="medium-6 columns">
-      <div class="panel">      
-        <h3>
-          "<%= link_to creative.name, creative %>"
-        </h3>
-        Теги:
+      <div class="panel">
+        <% if creative.author?(current_user) %>
+          <%= link_to "", creative, :method => :delete, data: { confirm: t('.are_you_sure')}, :class => "foundicon-remove right" %>
+          <%= link_to "", edit_creative_path(creative), :class => "foundicon-edit right" %>
+        <% end %>      
+        <h3><%= link_to creative.name, creative %></h3>
         <% creative.tags.each do |tag| %>
-          <span class="label radius"><%= tag%></span>
+          <span class="label radius"><h4><%= tag%></h4></span>
         <% end %>
         <br/>
         <%= creative.description %>
-          <p><%= creative.chapters.size %> глав</p>
+        <p><%=t(".chapters")%> <%= creative.chapters.size %></p>
         <ul class="button-group radius">
-          <li><%= link_to t('.show'), creative, class: "small button success"%></li>
-          <%= link_to t('.read'), read_creative_path(creative, :anchor => "chapter_last"),:class => "small button success" %>
-                <% if creative.author?(current_user) %>
-          <li><%= link_to t('creatives.show.edit'), edit_creative_path(creative), class: "small button" %></li>
-          
-          <li><%= link_to t('creatives.show.destroy'), creative, :method => :delete, data: { confirm: t('.are_you_sure')}, :class => "small button alert" %></li>
-        <% end %>
+          <%= link_to t('.read'), read_creative_path(creative, :anchor => "chapter_last"),:class => "right foundicon-right-arrow" %>
         </ul>
       </div>          
     </div>

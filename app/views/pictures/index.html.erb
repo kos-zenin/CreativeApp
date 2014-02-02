@@ -1,11 +1,12 @@
 <%= form_for @picture, :url => creative_pictures_path, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
   <div class="button-group round">
+      <%= link_to "", creative_path(@creative), :class => "button secondary foundicon-left-arrow" %>
     <span class="button fileinput-button success">
-      <span>Добавить файлы ...</span>
+      <span><%=t(".add_files") %></span>
       <%= f.file_field :file, multiple: true, id: 'upload-field' %>
     </span>
-    <span id="upload_all" class="button success">Загрузить все</span>
-    <%= link_to "Вернуться к креативу", creative_path(@creative), :class => "button secondary" %>
+    <span id="upload_all" class="button success"><%=t(".upload_all") %></span>
+
   </div>
   <div class="presentation">
     <ul class="files small-block-grid-2 medium-block-grid-3 large-block-grid-4">

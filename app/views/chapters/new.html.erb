@@ -1,10 +1,8 @@
 <div class='chapter'>
-<div>
-  <h1>
-      <%= link_to '', creative_path(@chapter.creative), :class=> "foundicon-left-arrow" %>
-      Новая глава</h1>
-</div>
-      <fieldset>
+  <div>
+    <h1><%= link_to '', creative_path(@chapter.creative), :class=> "foundicon-left-arrow" %><%= t(".new_chapter")%></h1>
+  </div>
+  <fieldset>
     <%= form_for @chapter, url: creative_chapters_path do |f| %>
       <% if @chapter.errors.any? %>
         <div id="error_explanation">
@@ -16,25 +14,23 @@
           </ul>
         </div>
       <% end %>
-        <%= f.text_field :name, :placeholder => "Имя главы", :required => "" %>
-       <div  class="row">
-        <div class="medium-6 columns">
-          <div class='wmd-panel'>
-            <div id='wmd-button-bar'></div>
-            <%= text_area_tag :body, @chapter.body, :name => "chapter[body]", :class => "wmd-input", :id => "wmd-input" %>
+      <%= f.text_field :name, :placeholder => t(".chapter_name"), :required => "" %>
+        <div  class="row">
+          <div class="medium-6 columns">
+            <div class='wmd-panel'>
+              <div id='wmd-button-bar'></div>
+              <%= text_area_tag :body, @chapter.body, :name => "chapter[body]", :class => "wmd-input", :id => "wmd-input" %>
+            </div>
+          </div>
+          <div class="medium-6 columns">
+            <div class="small button radius addbtn" value="#Заголовок#" data-reveal-id="choosePicModal"><%= t(".insert_picture") %></div>
+            <p><%= t(".preview") %></p>
+            <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
           </div>
         </div>
-        <div class="medium-6 columns">
-        <div class="small button radius addbtn" value="#Заголовок#" data-reveal-id="choosePicModal">Вставить изображения</div>
-          <p>Предпросмотр:</p>
-          <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
-        </div>
-      </div>
   </fieldset>
-        <%= f.hidden_field :creative_id %>
-        <button type="submit" class="success foundicon-checkmark right">Сохранить </button>
+    <%= f.hidden_field :creative_id %>
+    <button type="submit" class="success foundicon-checkmark right"><%= t("save") %> </button>
     <% end %>
 </div>
-
-
 <%= render "modal_pictures" %>

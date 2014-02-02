@@ -32,10 +32,27 @@ ru:
   back: "Назад"
   tags: "Теги"
   newtag: "Новый"
+  save: "Сохранить"
+  upload: "Загрузить"
+  cancel: "Отмена"
+  submit_comment: "Оставить комментарий"
+  brightness: "Яркость"
+  contrast: "Контрастность"
+  update_tags: "Обновить теги"
+  retouchpic: "Ретушировать"
   chapters:
+    new: 
+      new_chapter: "Новая глава"
+      chapter_name: "имя главы"
+      insert_picture: "Вставить изображение"
+      preview: "Предпросмотр"
     edit:
+      editing_chapter: "Редактирование главы"
+      chapter_name: "имя главы"
+      insert_picture: "Вставить изображение"
+      preview: "Предпросмотр"
     modal_pictures:
-      choose_pics: "Выберите изображения"
+      choose_pics: "Выберите изображение"
   comments:
     create:
       thank: "Спасибо за комментарий"
@@ -51,21 +68,25 @@ ru:
       maxNumberOfFiles: 'Превышено максимальное количество файлов'
       uploadedBytes: 'Ошибка при загрузке'
       emptyResult: 'Пустой файл'
+      add_files: "Добавить файлы..."
+      upload_all: "Загрузить все"
     template_download:
-      removepic: "Удалить изображение"
+      removepic: "Удалить"
     edit:
       title: "Редактировать изображение"
       ret: "Ретушь"
       crop: "Кадрирование"
-      brightness: "Яркость"
-      contrast: "Контраст"
-      update_tags: "Обновить теги"
+      croping: "Кадрировать"
+      show_cropped: "Показать кадрированное"
+      show_original: "Показать оригинал"
   creatives:
     title: "Креативы"
     index:
       show: "Открыть"
+      all_creatives: "Все креативы"
       read: "Читать"
       are_you_sure: "Вы уверены?"
+      chapters: "глав:"
     new:
       title: "Новый креатив"
       create: "Создать"
@@ -86,10 +107,11 @@ ru:
       add_chapter: "Добавить главу"
       edit_s: "Редактировать главу"
       destroy_s: "Удалить"
-      addedit-pictures: "Добавить / редактировать изображения"
+      manage-pictures: "Управление изображениями"
     reorder:
       reordered: "Порядок глав изменен"
     read:
+      to_top: "Наверх"
       short_desc: "Краткое описание: "
     create:
       created_notice: "Креатив успешно создан"

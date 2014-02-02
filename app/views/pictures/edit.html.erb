@@ -1,10 +1,10 @@
 <%= javascript_include_tag "jquery.Jcrop.min.js" %>
 <%= stylesheet_link_tag "jquery.Jcrop.min.css" %>
 <fieldset>
-<legend><%= t('.title')%></legend>
+<legend><h1><%= link_to "", creative_pictures_path, :class => "foundicon-left-arrow"%><%= t('.title')%></h1></legend>
   <%= form_for(@picture, :url => creative_picture_path(@picture.creative, @picture), :remote => true) do |f| %>
   <%= f.text_field :tag_tokens, "data-pre" => @picture.tags.map(&:attributes).to_json %> 
-      <input class="button radius" type='submit' value="Сохранить"/>
+      <input class="button radius" type='submit' value="<%= t("save") %>"/>
   <% end %>
   <dl class="tabs" data-tab>
     <dd><a href="#panel-ret-<%= @picture.id %>"><%= t('.ret')%></a></dd>
@@ -32,9 +32,9 @@
 				    });
           });
       </script>
-      <button id="croppic" data-url="<%= crop_picture_path(@picture.creative, @picture) %>" data-original="true" data-id="<%= @picture.id %>" data-params="">Кадрировать</button>
-      <button id="change_source_to_crop" data-url="<%= @picture.file.url+'.cropped.jpg' %>" data-original="false" data-id="<%= @picture.id %>">Показать кадрированное</button>
-      <button id="change_source_to_original" data-url="<%= @picture.file.url %>" data-original="true" data-id="<%= @picture.id %>">Показать оригинал</button>
+      <button id="croppic" data-url="<%= crop_picture_path(@picture.creative, @picture) %>" data-original="true" data-id="<%= @picture.id %>" data-params=""><%= t(".croping") %></button>
+      <button id="change_source_to_crop" data-url="<%= @picture.file.url+'.cropped.jpg' %>" data-original="false" data-id="<%= @picture.id %>"><%= t(".show_cropped") %></button>
+      <button id="change_source_to_original" data-url="<%= @picture.file.url %>" data-original="true" data-id="<%= @picture.id %>"><%= t(".show_original") %></button>
     </div>
   </div>
 </fieldset>

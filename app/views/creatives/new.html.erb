@@ -1,18 +1,19 @@
-<h1><%= t('.title')%></h1>
-
+<h1>
+  <%= link_to "", creatives_path, :class => "foundicon-left-arrow left medium" %>
+  <%= t('.title')%>
+</h1>
+<br><br><br><br>
 <%= form_for(@creative) do |f| %>
   <% if @creative.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@creative.errors.count, "error") %> prohibited this creative from being saved:</h2>
-
       <ul>
-      <% @creative.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @creative.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="row">
     <div class="small-3 columns">
       <%= f.label :name, class: "right inline"%>
@@ -29,18 +30,13 @@
       <%= f.text_area :description %>
     </div> 
   </div>
-  <div class="row">
-    <div class="small-3 columns">
-      <label class="right inline"><%= t('tags')%></label>
-    </div>
-    <div class="small-9 columns">
-      <%= f.text_field :tag_tokens %> 
-    </div>
-  <div class="row">
-    <div class="small-9 small-offset-3 columns">
-      <button type="submit" class="tiny button success radius"><%= t('.create')%></button>
-    </div>
+  <div class="small-3 columns">
+    <label class="right inline"><%= t('tags')%></label>
   </div>
+  <div class="small-9 columns">
+    <%= f.text_field :tag_tokens %> 
+  </div>
+    <div class="small-9 small-offset-3 columns">
+      <button type="submit" class="button success radius right"><%= t('.create')%></button>
+    </div>
 <% end %>
-
-<%= link_to t('.back'), creatives_path, :class => "small button secondary radius" %>

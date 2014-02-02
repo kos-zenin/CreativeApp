@@ -1,34 +1,34 @@
 <div id="home"></div>
-  <div data-magellan-expedition="fixed" align="center">
-    <dl class="sub-nav">
-    <div class="row">
-      <div class="large-9 large-centered medium-12 medium-centered column">
-        <dd><%= link_to 'Вернуться к креативу', creative_path(@creative), :class => "left" %></dd>
-        <dd>|</dd>
-        <dd data-magellan-arrival="home"><a href="#home">Наверх</a></dd>
-        <dd>|</dd>
-        <% @chapters.each do |chapter| %>
-          <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
-        <% end %>
-      </div>
-      </div>
-    </dl>
+<div data-magellan-expedition="fixed" align="center">
+  <dl class="sub-nav">
+  <div class="row">
+    <div class="large-9 large-centered medium-12 medium-centered column">
+      <dd><%= link_to 'Вернуться к креативу', creative_path(@creative), :class => "left" %></dd>
+      <dd>|</dd>
+      <dd data-magellan-arrival="home"><a href="#home"><%= t('.to_top')%></a></dd>
+      <dd>|</dd>
+      <% @chapters.each do |chapter| %>
+        <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
+      <% end %>
+    </div>
+    </div>
+  </dl>
 </div>
-  <fieldset>
-    <legend align="center">
-      <h2>
-        <%= @creative.name %>
-      </h2>
-    </legend>
-    <p>
-      <%= t('.short_desc')%><%= @creative.description %>
-    </p>
-    <% @chapters.each do |chapter| %>
-      <fieldset>
+<fieldset>
+  <legend align="center">
+    <h2>
+      <%= @creative.name %>
+    </h2>
+  </legend>
+  <p>
+    <%= t('.short_desc')%><%= @creative.description %>
+  </p>
+  <% @chapters.each do |chapter| %>
+    <fieldset>
       <legend align="center" data-magellan-destination="chapter_<%= chapter.number+1 %>"><h3 id="chapter_<%= chapter.number+1 %>"><%= chapter.name %></h3></legend>
         <% chapter.body.split(' ').each_with_index do |word, i| %>
           <span class="<%= chapter.id%>_<%= i.to_s%> markdown-source"> <%= word %> </span>
         <% end %>
-      </fieldset>
-    <% end %>
-  </fieldset>
+    </fieldset>
+  <% end %>
+</fieldset>

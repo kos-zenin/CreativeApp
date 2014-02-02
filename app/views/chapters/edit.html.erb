@@ -1,9 +1,10 @@
 <div class="chapter">
-<div>
-  <h1>
+  <div>
+    <h1>
       <%= link_to '', creative_path(@chapter.creative), :class=> "foundicon-left-arrow" %>
-      Редактирование главы<i class="foundicon-checkmark hidden right"></i></h1> 
-</div>
+      <%= t(".editing_chapter") %><i class="foundicon-checkmark hidden right"></i>
+    </h1> 
+  </div>
   <fieldset>
     <%= form_for @chapter, url: creative_chapter_path(@chapter.creative, @chapter), :html => { :class => "chapter_save"}, :remote => true do |f| %>
       <% if @chapter.errors.any? %>
@@ -17,9 +18,8 @@
         </div>
       <% end %>
       <div>
-        <%= f.text_field :name, :placeholder => "Имя главы", :required => "" %>
+        <%= f.text_field :name, :required => "" %>
       </div>
-
       <div class="row">
         <div class="medium-6 columns">
           <div class='wmd-panel'>
@@ -28,17 +28,15 @@
           </div>
         </div>
         <div class="medium-6 columns">
-        <div class="small button radius" data-reveal-id="choosePicModal">Вставить изображения</div>
-          <p>Предпросмотр:</p>
+        <div class="small button radius" data-reveal-id="choosePicModal"><%= t(".insert_picture") %></div>
+          <p><%= t(".preview") %></p>
           <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
         </div>
       </div>
-      
   </fieldset>
-        <%= f.hidden_field :creative_id %>
-        <%= f.hidden_field :number %>
-        <button type="submit" class="submit-chapter success right foundicon-checkmark"> Сохранить </button>
+  <%= f.hidden_field :creative_id %>
+  <%= f.hidden_field :number %>
+  <button type="submit" class="submit-chapter success right foundicon-checkmark"> <%= t("save") %></button>
     <% end %>
 </div>  
-
 <%= render "modal_pictures" %>

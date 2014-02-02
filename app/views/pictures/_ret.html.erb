@@ -2,7 +2,7 @@
 <div id="Filters">
   <div class="Filter">
     <div class="FilterName">
-      <p><%= t('.brightness')%></p>
+      <p><%= t('brightness')%></p>
     </div>
     <div class="FilterSetting">
       <input type="range" min="-100" max="100" step="1" value="0" data-filter="brightness">
@@ -11,7 +11,7 @@
   </div>
   <div class="Filter">
     <div class="FilterName">
-      <p><%= t('.contrast')%></p>
+      <p><%= t('contrast')%></p>
     </div>
     <div class="FilterSetting">
       <input type="range" min="-100" max="100" step="1" value="0" data-filter="contrast" >
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-  <button id="retouchpic">Ретушировать</button>
+  <button id="retouchpic"><%=t("retouchpic") %></button>
   <%= form_for(@picture, :url => retouch_picture_path(@picture.creative, @picture), :remote => true) do |f| %>
     <input name="image" type="hidden" id="image" value=""/>
   <% end %>

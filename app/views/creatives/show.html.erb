@@ -12,9 +12,7 @@
         </ul>
       <% end %>
     <% else %>
-      <% @creative.tags.each do |tag| %>
-        <span class="label radius"><%= tag%></span>
-      <% end %>
+      <%= tag_list(@creative) %>
     <% end %>
     <h3><span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span></h3>
   </fieldset>
@@ -56,7 +54,9 @@
   <ul class="clearing-thumbs" data-clearing>
     <% @creative.pictures.each do |picture| %>
       <li>
-        <a class="th" href="<%= picture.cropped ? picture.cropped_url : picture.file.url %>"><img src="<%= picture.cropped ? picture.thumb_cropped_url : picture.file.thumb.url %>"></a>
+        <a class="th" href="<%= picture.cropped ? picture.cropped_url : picture.file.url %>">
+          <img data-caption="<%= tag_list(picture) %>" src="<%= picture.cropped ? picture.thumb_cropped_url : picture.file.thumb.url %>">
+        </a>
       </li>
     <% end %>
   </ul>

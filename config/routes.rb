@@ -8,7 +8,7 @@ CreativesApp::Application.routes.draw do
     resources :pictures
   end
   
-  get '/' => 'creatives#index', :as => :search
+  get '/:search' => 'creatives#index', :as => :search
   post 'creatives/:id/reorder' => 'creatives#reorder', :as => :reorder
   get 'creatives/:id/read' => 'creatives#read', :as => :read_creative
   post 'creatives/:creative_id/pictures/:id/crop' => 'pictures#crop', :as => :crop_picture

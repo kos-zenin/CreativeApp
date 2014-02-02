@@ -19,7 +19,7 @@
       <%= javascript_include_tag "application" %>
       <p/>
       <div class="medium-7 medium-centered large-5 large-centered columns">
-        <form action="<%= search_path %>" method="get" >
+        <form action="<%= root_path %>" method="get" >
           <div class="row collapse">
             <div class="small-9 columns">
               <%= text_field_tag :search, params[:search], :required => "", :placeholder => "Введите запрос" %>  

@@ -15,9 +15,11 @@
       <%= render 'layouts/navigation' %>
     </header>
         <%= render 'layouts/messages' %>
-    <div class="row main-row">
-      <%= javascript_include_tag "application" %> 
-      <%= yield %>
+    <div class="row" style="max-width:100%;">
+      <%= javascript_include_tag "application" %>
+      <div class="small-11 small-centered medium-11 medium-centered large-10 large-centered columns">
+        <%= yield %>
+      </div>
       <%= javascript_include_tag "app-after" %>
     </div>
   </body>

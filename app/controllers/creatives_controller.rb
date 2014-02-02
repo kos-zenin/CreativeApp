@@ -1,5 +1,5 @@
 class CreativesController < ApplicationController
-  before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read]
+  before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read, :mistake]
   before_filter :authenticate_user!, :except => [:show, :index]
 
   # GET /creatives
@@ -21,6 +21,10 @@ class CreativesController < ApplicationController
 
   # GET /creatives/1/edit
   def edit
+  end
+
+  def mistake
+    @added_mistake = mistake_params[:mistake_text]
   end
 
   # POST /creatives
@@ -84,5 +88,9 @@ class CreativesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def creative_params
       params.require(:creative).permit(:name, :description, :user_id, :tag_tokens)
+    end
+
+    def mistake_params
+      params.permit(:mistake_text)
     end
 end

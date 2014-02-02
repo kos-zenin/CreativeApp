@@ -15,4 +15,6 @@ $ ->
     txt = document.getSelection()
   else txt = document.selection.createRange().text  if document.selection
   txt = $.trim(txt)
-  alert txt  unless txt is ""
+  unless txt is "" 
+  	$.post $("#chapter-read").attr("data-url")+"?mistake_text="+txt, (data) ->
+	  	escape data  

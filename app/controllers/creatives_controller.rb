@@ -1,6 +1,6 @@
 class CreativesController < ApplicationController
   before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read, :mistake]
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:show, :index, :mistake]
 
   # GET /creatives
   # GET /creatives.json

@@ -18,8 +18,10 @@ class Tag < ActiveRecord::Base
   end
 
   def parent
-    #return self.creatives if creatives.present?
-    self.pictures.map {|pic| pic.creative } if pictures.present?
+    array = Array.new
+    array << self.creatives if creatives.present?
+    array << self.pictures.map {|pic| pic.creative } if pictures.present?
+    array
   end
   #flattem!
 

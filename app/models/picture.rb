@@ -14,6 +14,10 @@ class Picture < ActiveRecord::Base
     self.file.url + ".cropped.jpg"
   end
 
+  def thumb_cropped_url
+    self.file.thumb.url + ".cropped.jpg"
+  end
+
   def to_jq_upload
     {
       "name" => read_attribute(:file),

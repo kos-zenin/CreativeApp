@@ -1,9 +1,6 @@
 <% content_for :title, @creative ? @creative.name : t(".all_creatives") %>
 
-<h1><%= t('.title') %></h1>
-<h1><%= t('.title_not_found') %></h1>
-
-<h1 class="medium-12 columns"><%= t(".all_creatives")%></h1>
+<h1 class="medium-12 columns"><%= @title%></h1>
 <% @creatives.each do |creative| %>
   <div class="medium-6 columns">
     <div class="panel">

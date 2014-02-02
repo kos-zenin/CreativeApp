@@ -1,7 +1,7 @@
 require 'RMagick'
 include Magick
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy, :crop]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :crop, :retouch]
 
   # GET /pictures
   # GET /pictures.json
@@ -59,23 +59,33 @@ class PicturesController < ApplicationController
   def crop
     par = picture_params_without_picture
     target = Dir.pwd+"/public"+@picture.cropped_url
+    target_thumb = Dir.pwd+"/public"+@picture.thumb_cropped_url
     if par[:original] == "true"
       source = Dir.pwd+"/public"+@picture.file.url
       @picture.update_attribute(:cropped, true)
     else
       source = target
     end
-    image=Image.read(source).first
-    new_image=image.crop!(par[:x].to_i,par[:y].to_i,par[:w].to_i,par[:h].to_i)
+    image = Image.read(source).first
+    new_image = image.crop!(par[:x].to_i,par[:y].to_i,par[:w].to_i,par[:h].to_i)
     new_image.write(target)
+
+    thumb = Image.read(target).first.resize_to_fill 200, 150
+    thumb.write(target_thumb)
   end
 
   def retouch
-    bytes = Base64.decode64(picture_params_without_picture[:image])
-    img   = Image.from_blob(bytes).first
     target = Dir.pwd+"/public"+@picture.cropped_url
+    target_thumb = Dir.pwd+"/public"+@picture.thumb_cropped_url
+    blob = picture_params_without_picture[:image]['data:image/png;base64,'.length .. -1]
+    img = Base64.decode64(blob)
+    File.open(target, 'wb') { |f| f.write(img) }
     @picture.update_attribute(:cropped, true)
-    img.write(target)
+
+    #RMagick
+    image = Image.read(target).first
+    thumb = image.resize_to_fill 200, 150
+    thumb.write(target_thumb)
   end
 
   # PATCH/PUT /pictures/1

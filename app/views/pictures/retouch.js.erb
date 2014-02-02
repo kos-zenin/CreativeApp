@@ -10,4 +10,5 @@ $('#target-<%= @picture.id %>').attr('src','<%= @picture.file.url%>'+".cropped.j
 $('#target-<%= @picture.id %>').Jcrop({
 				      onChange:   updatevalues
 				    });
-$('#panel-ret-<%= @picture.id %>').html('<%= j render "ret" %>');
+$('#croppic').attr('data-original','false');
+$('#retpicplace').html('<%= j render "ret" %>');

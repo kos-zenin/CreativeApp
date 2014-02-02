@@ -18,6 +18,13 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :environment, :development
+set :output, 'tmp/whenever.log'
+
 every 5.minute do
   rake "ts:index"
+end
+
+every :reboot do
+  rake "ts:start"
 end

@@ -12,11 +12,14 @@
   </dl>
   <div class="tabs-content">
     <div class="content" id="panel-ret-<%= @picture.id %>">
-      <%= render "ret" %>
+      <div id="retpicplace">
+        <%= render "ret" %>
+      </div>
+       <button id="retouchpic"><%= t("retouchpic") %></button>
     </div>
     <div class="content active" id="panel-crop-<%= @picture.id %>">
       <div id="pic_container_<%= @picture.id %>">
-        <%= @picture.cropped ? (image_tag(@picture.file.url+".cropped.jpg", :id => "target-#{@picture.id}")) : (image_tag(@picture.file.url, :id => "target-#{@picture.id}")) %>
+        <%= @picture.cropped ? (image_tag(@picture.cropped_url, :id => "target-#{@picture.id}")) : (image_tag(@picture.file.url, :id => "target-#{@picture.id}")) %>
       </div>
       <script type="text/javascript">
           jQuery(function($){
@@ -32,7 +35,7 @@
 				    });
           });
       </script>
-      <button id="croppic" data-url="<%= crop_picture_path(@picture.creative, @picture) %>" data-original="true" data-id="<%= @picture.id %>" data-params=""><%= t(".croping") %></button>
+      <button id="croppic" data-url="<%= crop_picture_path(@picture.creative, @picture) %>" data-original="<%= !@picture.cropped %>" data-id="<%= @picture.id %>" data-params=""><%= t(".croping") %></button>
       <button id="change_source_to_crop" data-url="<%= @picture.file.url+'.cropped.jpg' %>" data-original="false" data-id="<%= @picture.id %>"><%= t(".show_cropped") %></button>
       <button id="change_source_to_original" data-url="<%= @picture.file.url %>" data-original="true" data-id="<%= @picture.id %>"><%= t(".show_original") %></button>
     </div>

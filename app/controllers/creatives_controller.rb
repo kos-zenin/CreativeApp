@@ -2,24 +2,18 @@ class CreativesController < ApplicationController
   before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read, :mistake]
   before_filter :authenticate_user!, :except => [:show, :index, :mistake]
 
-  
-  def search
-    @search_string = search_params[:search]
-    #@results = Creative.search search_params[:search]+"*"
-    
-
-  end
-
   def index
-    @search_string = search_params[:search]
-    if @search_string.present?
-      results = ThinkingSphinx.search "*#{@search_string}*", :classes => [Creative,Chapter,Tag], :match_mode => :any
+    search_string = search_params[:search]
+    if search_string.present?
+      results = ThinkingSphinx.search "*#{search_string}*", :classes => [Creative,Chapter,Tag], :match_mode => :any
       @creatives = results.map {|result| result.parent}
       @creatives.flatten!
       @creatives.uniq!
       @creatives.compact!
+      @title = @creatives.empty? ? (t('.search_title_not_found') + search_string) : t('.search_title')
     else
       @creatives = Creative.all
+      @title = t(".all_creatives")
     end
   end
 

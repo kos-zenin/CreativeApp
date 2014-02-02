@@ -1,4 +1,4 @@
-<%= @picture.cropped ? (image_tag(@picture.file.url+".cropped.jpg", :id => "example")) : (image_tag(@picture.file.url, :id => "example")) %>
+<%= @picture.cropped ? (image_tag(@picture.cropped_url, :id => "example")) : (image_tag(@picture.file.url, :id => "example")) %>
 <div id="Filters">
   <div class="Filter">
     <div class="FilterName">
@@ -19,7 +19,6 @@
     </div>
   </div>
 </div>
-  <button id="retouchpic"><%=t("retouchpic") %></button>
   <%= form_for(@picture, :url => retouch_picture_path(@picture.creative, @picture), :remote => true) do |f| %>
     <input name="image" type="hidden" id="image" value=""/>
   <% end %>

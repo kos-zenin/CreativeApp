@@ -18,10 +18,15 @@
     <% end %>
     <h3><span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span></h3>
   </fieldset>
-  <h1>
-    <%= link_to "", creatives_path, :class => "foundicon-left-arrow left" %>
-    <%= link_to "", new_creative_chapter_path(@creative), :class => "foundicon-add-doc" if  @creative.author?(current_user) %>
-    <%= link_to t(".read"), read_creative_path(@creative), :class => "foundicon-right-arrow right" %>
+  <h1 class="row">
+    <span class="small-5 columns"><%= link_to "", creatives_path, :class => "foundicon-left-arrow" %></span>
+    <span class="small-1 small-centered columns">
+    <%= link_to "", new_creative_chapter_path(@creative), :class => "foundicon-add-doc" if  @creative.author?(current_user) %></span>
+    <span class="small-6 columns">
+      <%= link_to(read_creative_path(@creative),:class => "right") do%>
+          <%= t(".read") %> <i class="foundicon-right-arrow"></i>
+      <% end %>
+    </span>
   </h1>
   <div id="sortable-grid" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-url="<%= reorder_path(@creative) %>">
     <% @chapters.each do |chapter| %>

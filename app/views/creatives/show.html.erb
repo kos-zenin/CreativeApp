@@ -18,6 +18,9 @@
     <% end %>
     <h3><span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span></h3>
   </fieldset>
+  <% if @creative.author?(current_user) && @creative.mistakes.present? %>
+    <%= render 'mistake' %>
+  <% end %>
   <h1 class="row">
     <span class="small-5 columns"><%= link_to "", creatives_path, :class => "foundicon-left-arrow" %></span>
     <span class="small-1 small-centered columns">

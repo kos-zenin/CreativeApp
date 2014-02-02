@@ -1,0 +1,15 @@
+<fieldset class="mistakes">
+  <legend><h2><%= t("mistakes")%></h2></legend>
+  <ul> 
+    <% @creative.mistakes.each do |mistake| %>
+      <li class="mistakes">
+        <span> 
+          <%= t("added")%> <%= mistake.created_at.to_formatted_s(:short) %>:&nbsp;&nbsp;
+        </span>
+        <span>
+          <%= mistake.mistake_text %>
+        </span> 
+      </li>  
+    <% end %>
+  </ul>
+</fieldset>

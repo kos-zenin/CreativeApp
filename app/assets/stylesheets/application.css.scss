@@ -76,41 +76,6 @@ label.right {
 }
 
 
-
-@media only screen and (max-width: 640px) {
-  .main-row {
-    max-width:600px !important;
-  }
-}
-
-// Medium screens
-@media only screen and (max-width: 800px) {
-  .main-row {
-    max-width:750px !important;
-  }
-}
-@media only screen and (max-width: 1022px) {
-  .main-row {
-    max-width:920px !important;
-  }
-}
-
-// Large screens
-@media only screen and (min-width: 1023px) {
-  .main-row {
-    max-width:950px !important;
-  }
-}
-
-@media only screen and (min-width: 1279px) {
-  .main-row {
-    max-width:1200px !important;
-  }
-}
-
-
-@media only screen and (min-width: 1440px) {
-  .main-row {
-    max-width:1400px !important;
-  }
+.main-row {
+  max-width:100% !important;
 }

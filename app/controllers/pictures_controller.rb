@@ -71,7 +71,7 @@ class PicturesController < ApplicationController
   end
 
   def retouch
-    bytes = ActiveSupport::Base64.decode64(picture_params_without_picture[:image])
+    bytes = Base64.decode64(picture_params_without_picture[:image])
     img   = Image.from_blob(bytes).first
     target = Dir.pwd+"/public"+@picture.cropped_url
     @picture.update_attribute(:cropped, true)

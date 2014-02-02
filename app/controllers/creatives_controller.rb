@@ -2,10 +2,25 @@ class CreativesController < ApplicationController
   before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read, :mistake]
   before_filter :authenticate_user!, :except => [:show, :index, :mistake]
 
-  # GET /creatives
-  # GET /creatives.json
+  
+  def search
+    @search_string = search_params[:search]
+    #@results = Creative.search search_params[:search]+"*"
+    
+
+  end
+
   def index
-    @creatives = Creative.all
+    @search_string = search_params[:search]
+    if @search_string.present?
+      results = ThinkingSphinx.search "*#{@search_string}*", :classes => [Creative,Chapter,Tag], :match_mode => :any
+      @creatives = results.map {|result| result.parent}
+      @creatives.flatten!
+      @creatives.uniq!
+      @creatives.compact!
+    else
+      @creatives = Creative.all
+    end
   end
 
   # GET /creatives/1
@@ -92,5 +107,9 @@ class CreativesController < ApplicationController
 
     def mistake_params
       params.permit(:mistake_text)
+    end
+
+    def search_params
+      params.permit(:search)
     end
 end

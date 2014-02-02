@@ -16,4 +16,11 @@ class Tag < ActiveRecord::Base
   def to_s
     name
   end
+
+  def parent
+    #return self.creatives if creatives.present?
+    self.pictures.map {|pic| pic.creative } if pictures.present?
+  end
+  #flattem!
+
 end

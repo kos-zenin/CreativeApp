@@ -115,6 +115,11 @@ ru:
       short_desc: "Краткое описание: "
     create:
       created_notice: "Креатив успешно создан"
+  search:
+    title: "Поиск"
+    index:
+      title_not_found: "Нет совпадений"
+      title: "Результаты поиска"
   activerecord:
     models:
       creative: "Креатив"

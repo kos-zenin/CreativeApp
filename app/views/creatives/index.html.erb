@@ -1,5 +1,9 @@
 <% content_for :title, @creative ? @creative.name : t(".all_creatives") %>
-<h1 class="medium-12 columns"><%= link_to '', new_creative_path, class: "foundicon-plus" if current_user %> &nbsp;&nbsp;&nbsp; <%= t(".all_creatives")%></h1>
+
+<h1><%= t('.title') %></h1>
+<h1><%= t('.title_not_found') %></h1>
+
+<h1 class="medium-12 columns"><%= t(".all_creatives")%></h1>
 <% @creatives.each do |creative| %>
   <div class="medium-6 columns">
     <div class="panel">

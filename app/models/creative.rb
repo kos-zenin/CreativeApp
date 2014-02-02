@@ -31,4 +31,9 @@ class Creative < ActiveRecord::Base
 		self.tag_ids = Tag.ids_from_tokens(ids)
   end
 
+  def parent
+    self
+  end
+  
+
 end

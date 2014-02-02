@@ -20,3 +20,6 @@ $ ->
 	  unless window.location.href.indexOf("page_y") is -1
 	    match = window.location.href.split("?")[1].split("&")[0].split("=")
 	    document.getElementsByTagName("body")[0].scrollTop = match[1]
+
+	$("#search").bind "change keyup input", ->
+		alert "I KANT, WD CAN"  if $("#search").val() is "itra"

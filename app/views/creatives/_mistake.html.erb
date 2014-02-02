@@ -4,7 +4,7 @@
     <% @creative.mistakes.each do |mistake| %>
       <li class="mistakes">
         <span> 
-          <%= t("added")%> <%= mistake.created_at.to_formatted_s(:short) %>:&nbsp;&nbsp;
+          <%= t("added")%> <%= I18n.localize(mistake.created_at) %>:&nbsp;&nbsp;
         </span>
         <span>
           <%= mistake.mistake_text %>

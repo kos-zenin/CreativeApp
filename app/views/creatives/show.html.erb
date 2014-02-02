@@ -3,7 +3,7 @@
     <legend>
       <h2><%= best_in_place_if @creative.author?(current_user), @creative, :name, :type => :input, :required => true, :activator => "#editme"%><a id="editme" class="foundicon-edit right" href="#"></a></h2>
     </legend>
-    <h1><%= best_in_place @creative, :description, :nil => "click me", :type => :textarea %></h1>
+    <h5><%= best_in_place @creative, :description, :nil => "click me", :type => :textarea %></h5>
     <% if @creative.author?(current_user) %>
       <%= form_for @creative, :remote => true do |f| %>
         <ul>
@@ -17,7 +17,7 @@
     <h3><span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span></h3>
   </fieldset>
   <% if @creative.author?(current_user) && @creative.mistakes.present? %>
-    <%= render 'mistake' %>
+    <%= render 'mistakes' %>
   <% end %>
   <h1 class="row">
     <span class="small-5 columns">

@@ -1,10 +1,10 @@
 <fieldset class="mistakes">
-  <legend><h2><%= t("mistakes")%></h2></legend>
+  <legend><h2><%= t('mistakes')%></h2></legend>
   <ul> 
     <% @creative.mistakes.each do |mistake| %>
       <li class="mistakes">
         <span> 
-          <%= t("added")%> <%= I18n.localize(mistake.created_at) %>:&nbsp;&nbsp;
+          <%= t('added')%> <%= I18n.localize(mistake.created_at) %>:&nbsp;&nbsp;
         </span>
         <span>
           <%= mistake.mistake_text %>

@@ -158,6 +158,7 @@ ru:
               blank: "не может быть пустым"
             password_confirmation:
               blank: "не может быть пустым"
+              confirmation: "Пароли не совпадают"
   datetime:
     distance_in_words:
       half_a_minute: "пол минуты"

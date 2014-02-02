@@ -1,16 +1,22 @@
 <script id="template-download" type="text/x-tmpl">
-
   {% for (var i=0, file; file=o.files[i]; i++) { %}
     <li class="template-download" style="text-align:center;">
       {% if (file.error) { %}
         <p class="name"><span>{%=file.name%}</span></p>
         <p class="size"><span>{%=o.formatFileSize(file.size)%}</span></p>
-        <p class="error" colspan="2"><span class="label alert">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</p>
+        <p class="error" colspan="2"><span class="label alert radius">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</p>
         {% } else { %}
         <p class="preview">
           {% if (file.thumbnail_url) { %}
-          <a href="{%=file.edit_url%}">
-          <img class="th" src="{%=file.thumbnail_url%}"></a>
+            {% if (file.cropped) { %}
+              <a href="{%=file.edit_url%}">
+                <img class="th" src="{%=file.cropped_thumbnail_url%}">
+              </a>
+            {% } else { %}
+              <a href="{%=file.edit_url%}">
+                <img class="th" src="{%=file.thumbnail_url%}">
+              </a>
+            {% } %}
           {% } %}
         </p>
         <p class="delete">

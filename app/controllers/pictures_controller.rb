@@ -1,7 +1,7 @@
 require 'RMagick'
 include Magick
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy, :crop, :retouch]
+  before_action :set_picture, only: [:edit, :update, :destroy, :crop, :retouch, :revert]
 
   # GET /pictures
   # GET /pictures.json
@@ -15,20 +15,6 @@ class PicturesController < ApplicationController
       # format.json { render json: @pictures }
       format.json { render json: @pictures.map{|pic| pic.to_jq_download } }
     end
-  end
-
-  # GET /pictures/1
-  # GET /pictures/1.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @picture }
-    end
-  end
-
-  # GET /pictures/new
-  def new
-    @picture = Picture.new
   end
 
   # GET /pictures/1/edit
@@ -86,6 +72,14 @@ class PicturesController < ApplicationController
     image = Image.read(target).first
     thumb = image.resize_to_fill 200, 150
     thumb.write(target_thumb)
+  end
+
+  def revert
+    target = Dir.pwd+"/public"+@picture.cropped_url
+    target_thumb = Dir.pwd+"/public"+@picture.thumb_cropped_url
+    File.delete(target) if File.exist?(target)
+    File.delete(target_thumb) if File.exist?(target_thumb)
+    @picture.update_attribute(:cropped, false)
   end
 
   # PATCH/PUT /pictures/1

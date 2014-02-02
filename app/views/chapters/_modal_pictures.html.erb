@@ -5,7 +5,7 @@
       <%= content_tag :h3, t('.no_pictures') %>
     <% else %>
       <% @chapter.creative.pictures.each do |pic| %>
-        <li><img class ="addimagebutton th" src="<%= pic.cropped? ? pic.file.url + ".cropped.jpg" : pic.file.thumb.url %>" url="<%= pic.cropped? ? pic.file.url + ".cropped.jpg" : pic.file.url %>"></li>
+        <li><img class ="addimagebutton th" src="<%= pic.cropped? ? pic.thumb_cropped_url : pic.file.thumb.url %>" url="<%= pic.cropped? ? pic.cropped_url : pic.file.url %>"></li>
       <% end %>
     <% end %>
   </ul>

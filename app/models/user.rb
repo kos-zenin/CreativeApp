@@ -27,7 +27,18 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
   has_many :creatives, :dependent => :destroy
+  has_many :readings
+  has_many :readables, through: :readings, :source => :creative
+
+
+  def user_city
+    geo_location = Geocoder.search(self.last_sign_in_ip).to_json
+    hash_location = JSON.parse geo_location
+    @latitude = hash_location[0]["data"]["latitude"]
+    @longitude = hash_location[0]["data"]["longitude"]
+  	[@latitude, @longitude]
+  end
 end

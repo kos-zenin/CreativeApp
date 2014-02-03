@@ -1,0 +1,15 @@
+<% @creative.readers.each do |reader| %>
+<h3> <%= t(".near_readers")%>: </h3>
+  <span id="near_<%=reader.id%>"> <%= t(".nobody_reads")%></span>
+  <script type="text/javascript">
+  <% if current_user != reader %>
+    var glatlng1 = new GLatLng(<%= current_user.user_city[0]%>, <%= current_user.user_city[1]%>);
+    var glatlng2 = new GLatLng(<%= reader.user_city[0]%>, <%= reader.user_city[1]%>);
+    var miledistance = glatlng1.distanceFrom(glatlng2, 3959).toFixed(1);
+    var kmdistance = (miledistance * 1.609344).toFixed(1);
+    if(kmdistance < 100) {
+    	document.getElementById('near_<%=reader.id%>').innerHTML = kmdistance + ' kilometers' + ":" + "<%= reader.nickname.present? ? reader.nickname : reader.email %>";
+		}
+    <% end %>
+  </script>
+<%end%>

@@ -16,6 +16,7 @@
     <% end %>
     <h3><span class="right"><%= link_to @creative.user.nickname.present? ? @creative.user.nickname : @creative.user.email, @creative.user %></span></h3>
   </fieldset>
+
   <% if @creative.author?(current_user) && @creative.mistakes.present? %>
     <%= render 'mistakes' %>
   <% end %>

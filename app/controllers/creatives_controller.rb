@@ -21,8 +21,8 @@ class CreativesController < ApplicationController
   # GET /creatives/1.json
   def show
     @chapters = @creative.chapters.order(number: :asc)
+    @creative.readers.delete current_user if current_user.present?
   end
-
   # GET /creatives/new
   def new
     @creative = Creative.new
@@ -53,6 +53,7 @@ class CreativesController < ApplicationController
   end
   def read
     @chapters = @creative.chapters.order(number: :asc)
+    @creative.readers << current_user if !@creative.readers.include? current_user
   end
 
   def reorder

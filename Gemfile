@@ -24,7 +24,7 @@ gem 'camanjs-rails', git: 'git@github.com:ksz2k/camanjs-rails.git'
 gem 'thinking-sphinx', '3.1.0'
 gem 'whenever', :require => false	
 gem 'russian'
-
+gem 'geocoder'
 group :doc do
   gem 'sdoc', require: false
 end

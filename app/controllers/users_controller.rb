@@ -28,6 +28,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    @user.update_attributes(:ip => request.remote_ip)
   end
 
 end

@@ -20,6 +20,8 @@ class Creative < ActiveRecord::Base
 	has_many :mistakes
 
 	belongs_to :user
+	has_many :readings
+	has_many :readers, through: :readings, :source => :user
 
 	attr_reader :tag_tokens
 

@@ -1,3 +1,4 @@
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA7j_Q-rshuWkc8HyFI4V2HxQYPm-xtd00hTQOC0OXpAMO40FHAxT29dNBGfxqMPq5zwdeiDSHEPL89A" type="text/javascript"></script>
 <div id="home"></div>
 <div data-magellan-expedition="fixed" align="center">
   <dl class="sub-nav">
@@ -7,13 +8,14 @@
       <dd>|</dd>
       <dd data-magellan-arrival="home"><a href="#home"><%= t('.to_top')%></a></dd>
       <dd>|</dd>
-      <% @chapters.each do |chapter| %>
+     <% @chapters.each do |chapter| %>
         <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
       <% end %>
     </div>
     </div>
   </dl>
 </div>
+<%= render 'distance' %>
 <fieldset>
   <legend align="center">
     <h2 id="chapter-read" data-url="<%= mistake_creative_path(@creative)%>">

@@ -88,6 +88,9 @@ ru:
       show_original: "Показать оригинал"
   creatives:
     title: "Креативы"
+    distance:
+      near_readers: "Читают рядом с вами"
+      nobody_reads: "Пока никто не читает рядом с вами"
     index:
       search_title_not_found: "Нет совпадений по тексту: "
       search_title: "Результаты поиска"

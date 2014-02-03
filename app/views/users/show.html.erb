@@ -1,3 +1,9 @@
-<h3>User</h3>
-<p>Email: <%= @user.email if @user.email %></p>
-<p>Name: <%= @user.nickname if @user.nickname %></p>
+<div class="authform medium-6 medium-centered columns">
+	<fieldset>
+		<legend><h1><%=t(".user")%></h1></legend>
+		<p><%=t(".email")%><%= @user.email if @user.email %></p>
+		<p><%=t(".nickname")%><%= @user.nickname.present? ? @user.nickname : t(".no_nickname") %></p>
+		<br><br><br><br>
+		<p> <%= t(".created_creatives")%><%= creatives_list(@user.creatives) %>
+	</fieldset>
+</div>

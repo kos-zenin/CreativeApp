@@ -44,6 +44,13 @@ ru:
   mistakes: "Ошибки:"
   added: "Добавлено"
   mistake_sent: "О данной ошибке будет сообщено автору"
+  users:
+    show:
+      no_nickname: "Пользователь еще не выбрал ник"
+      email: "email: "
+      nickname: "Ник: "
+      user: "Пользователь: "
+      created_creatives: "Креативы: "
   chapters:
     new: 
       new_chapter: "Новая глава"

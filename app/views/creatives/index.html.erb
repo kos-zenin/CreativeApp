@@ -5,8 +5,7 @@
   <div class="medium-6 columns">
     <div class="panel">
       <% if creative.author?(current_user) %>
-        <%= link_to "", creative, :method => :delete, data: { confirm: t('.are_you_sure')}, :class => "foundicon-remove right" %>
-        <%= link_to "", edit_creative_path(creative), :class => "foundicon-edit right" %>
+        <%= link_to "", creative, :method => :delete, data: { confirm: t('.are_you_sure')}, :class => "foundicon-trash right" %>
       <% end %>      
       <h3><%= link_to creative.name, creative %></h3>
       <%= tag_list(creative) %>

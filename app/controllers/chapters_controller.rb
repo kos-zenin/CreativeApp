@@ -16,14 +16,14 @@ class ChaptersController < ApplicationController
     @chapter.number = @chapter.creative.chapters.count + 1;
 
       if @chapter.save
-        redirect_to @chapter.creative, notice: 'Chapter successfully created'
+        redirect_to @chapter.creative, notice: t(".created_notice")
       else
         render action 'new'
       end
   end
   def update
       if @chapter.update(chapter_params)
-        redirect_to @chapter.creative, notice: 'Chapter successfully updated'
+        redirect_to @chapter.creative, notice: t(".updated_notice")
       else
         render action: 'update'
       end

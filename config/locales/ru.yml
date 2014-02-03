@@ -64,6 +64,11 @@ ru:
       preview: "Предпросмотр"
     modal_pictures:
       choose_pics: "Выберите изображение"
+      no_pictures: "Нет изображений"
+    create:
+      created_notice: "Глава успешно создана"
+    update:
+      updated_notice: "Глава успешно обновлена"
   comments:
     create:
       thank: "Спасибо за комментарий"
@@ -134,6 +139,7 @@ ru:
       short_desc: "Краткое описание: "
     create:
       created_notice: "Креатив успешно создан"
+    update:
       updated_notice: "Креатив успешно обновлен"
   activerecord:
     models:

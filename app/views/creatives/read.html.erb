@@ -14,7 +14,6 @@
       <% @chapters.each do |chapter| %>
         <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
       <% end %>
-      
     </div>
     </div>
   </dl>

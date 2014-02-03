@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: pictures
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  creative_id :integer
+#  file        :string(255)
+#  cropped     :boolean
+#
+
 class Picture < ActiveRecord::Base
   mount_uploader :file, FileUploader
   belongs_to :creative, :inverse_of => :pictures

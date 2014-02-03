@@ -8,7 +8,10 @@
       <dd>|</dd>
       <dd data-magellan-arrival="home"><a href="#home"><%= t('.to_top')%></a></dd>
       <dd>|</dd>
-     <% @chapters.each do |chapter| %>
+      <dd><a id="plustext">(+)</a></dd>
+      <dd><a id="minustext">(-)</a></dd>
+      <dd>|</dd>
+      <% @chapters.each do |chapter| %>
         <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
       <% end %>
     </div>

@@ -22,6 +22,7 @@ class CreativesController < ApplicationController
   def show
     @chapters = @creative.chapters.order(number: :asc)
     @creative.readers.delete current_user if current_user.present?
+    check_for_mistakes
   end
   # GET /creatives/new
   def new
@@ -43,7 +44,7 @@ class CreativesController < ApplicationController
 
     respond_to do |format|
       if @creative.save
-        format.html { redirect_to @creative, notice: 'Creative was successfully created.' }
+        format.html { redirect_to @creative, notice: t('.created_notice') }
         format.json { render action: 'show', status: :created, location: @creative }
       else
         format.html { render action: 'new' }
@@ -70,7 +71,7 @@ class CreativesController < ApplicationController
   def update
     respond_to do |format|
       if @creative.update(creative_params)
-        format.html { redirect_to @creative, notice: 'Creative was successfully updated.' }
+        format.html { redirect_to @creative, notice: t('.updated_notice') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -90,6 +91,14 @@ class CreativesController < ApplicationController
   end
 
   private
+
+    def check_for_mistakes
+      @creative.mistakes.each do |mistake|
+        @creative.chapters.each do |chapter|
+          mistake.destroy if !chapter.body.include?(mistake.mistake_text)
+        end
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_creative
       @creative = Creative.find(params[:id])

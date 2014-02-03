@@ -14,6 +14,7 @@
       <% @chapters.each do |chapter| %>
         <dd data-magellan-arrival="chapter_<%= chapter.number+1 %>"><%= link_to chapter.name, :anchor => "chapter_#{chapter.number+1}" %></dd>
       <% end %>
+      <dd><span id="current">yyy</span></dd>
     </div>
     </div>
   </dl>
@@ -31,9 +32,7 @@
   <% @chapters.each do |chapter| %>
     <fieldset>
       <legend align="center" data-magellan-destination="chapter_<%= chapter.number+1 %>"><h3 id="chapter_<%= chapter.number+1 %>"><%= chapter.name %></h3></legend>
-        <% chapter.body.split(' ').each_with_index do |word, i| %>
-          <span class="<%= chapter.id%>_<%= i.to_s%> markdown-source"> <%= word %> </span>
-        <% end %>
+        <p class="markdown-source"> <%= chapter.body %></p>
     </fieldset>
   <% end %>
 </fieldset>

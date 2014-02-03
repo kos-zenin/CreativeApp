@@ -6,7 +6,7 @@ CreativesApp::Application.routes.draw do
  
   resources :creatives do
     resources :chapters
-    resource :comments
+    resources :comments
     resources :pictures
   end
   

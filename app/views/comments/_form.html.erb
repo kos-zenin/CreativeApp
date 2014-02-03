@@ -1,6 +1,0 @@
-<%= form_for [@creative, @creative.comments.build], :remote => true,
-																										:method => :post,
-                                            				'data-type' => 'json' do |f| %>
-  <%= f.text_area :body, :required => "" %>
-  <%= f.submit :value => t("submit_comment"), :type => "submit", :class => "small button alert" %>
-<% end %>

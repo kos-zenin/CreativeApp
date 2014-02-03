@@ -69,5 +69,5 @@
   <%= link_to t(".manage-pictures"), creative_pictures_path(@creative), :class => "small button secondary" if @creative.author?(current_user) %>
 </div>
 <br><br><br><br>
-<%= render 'comments/show' %>
-<%= render 'comments/form' %>
+
+<%= render 'comments' %>

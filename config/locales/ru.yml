@@ -141,6 +141,9 @@ ru:
       created_notice: "Креатив успешно создан"
     update:
       updated_notice: "Креатив успешно обновлен"
+    comments:
+      please_comment: "Оставьте свой комментарий"
+      comments: "Комментарии"
   activerecord:
     models:
       creative: "Креатив"

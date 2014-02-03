@@ -1,6 +1,6 @@
 class CreativesController < ApplicationController
   before_action :set_creative, :only => [:show, :edit, :update, :destroy, :reorder, :read, :mistake]
-  before_filter :authenticate_user!, :except => [:show, :index, :mistake]
+  before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :new]
 
   def index
     search_string = search_params[:search]
@@ -54,7 +54,7 @@ class CreativesController < ApplicationController
   end
   def read
     @chapters = @creative.chapters.order(number: :asc)
-    @creative.readers << current_user if !@creative.readers.include? current_user
+    @creative.readers << current_user if !@creative.readers.include?(current_user) && current_user
   end
 
   def reorder

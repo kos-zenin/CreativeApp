@@ -25,9 +25,9 @@
       <%= @creative.name %>
     </h2>
   </legend>
-  <p>
+  <div>
     <%= t('.short_desc')%><%= @creative.description %>
-  </p>
+  </div>
   <% @chapters.each do |chapter| %>
     <fieldset>
       <legend align="center" data-magellan-destination="chapter_<%= chapter.number+1 %>"><h3 id="chapter_<%= chapter.number+1 %>"><%= chapter.name %></h3></legend>

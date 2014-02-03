@@ -18,11 +18,6 @@ class Picture < ActiveRecord::Base
     self.file.thumb.url + ".cropped.jpg"
   end
   
-  def tag_list
-    t = self.tags.map {|tag| "<a href='/?search=#{tag.name}' class='label radius'>#{tag.name}</a>" } 
-    t.join(' ')
-  end
-  
   def to_jq_upload
     {
       "name" => read_attribute(:file),

@@ -10,3 +10,4 @@ $ ->
   unless txt is "" 
   	$.post $("#chapter-read").attr("data-url")+"?mistake_text="+txt, (data) ->
 	  	escape data
+  

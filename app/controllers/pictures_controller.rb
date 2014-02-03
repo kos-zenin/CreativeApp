@@ -2,6 +2,7 @@ require 'RMagick'
 include Magick
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:edit, :update, :destroy, :crop, :retouch, :revert]
+  before_filter :authenticate_user!
 
   # GET /pictures
   # GET /pictures.json

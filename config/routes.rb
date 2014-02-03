@@ -19,7 +19,7 @@ CreativesApp::Application.routes.draw do
   post 'creatives/:id/mistake' => 'creatives#mistake', :as => :mistake_creative
 
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+  get 'users/:id' => 'users#show', :as => :user
 
   
 end

@@ -11,7 +11,6 @@
 //= require markdown
 //= require chapters
 //= require sisyphus
-//= require read
 //= require global
 //= require tags
 //= require markdown.converter

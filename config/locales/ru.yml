@@ -36,6 +36,7 @@ ru:
   upload: "Загрузить"
   cancel: "Отмена"
   search: "Поиск"
+  submit_comment: "Оставить комментарий"
   brightness: "Яркость"
   contrast: "Контрастность"
   update_tags: "Обновить теги"
@@ -120,6 +121,8 @@ ru:
       back: "Вернуться к Креативам"
     show:
       no_pictures: "Нет изображений"
+      no_comments: "Нет комментариев"
+      comments: "Комментарии"
       add: "Добавить комментарий"
       read: "Читать"
       please_comment: "Добавьте свой комментарий:"
@@ -138,11 +141,6 @@ ru:
       created_notice: "Креатив успешно создан"
     update:
       updated_notice: "Креатив успешно обновлен"
-    comments:
-      please_comment: "Оставьте свой комментарий"
-      no_comments: "Нет комментариев"
-      comments: "Комментарии"
-      add: "Оставить комментарий"
   activerecord:
     models:
       creative: "Креатив"

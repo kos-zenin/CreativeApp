@@ -1,8 +1,0 @@
-<%= div_for comment, :class=>"panel callout radius" do %>
-  <%= link_to raw("&times"), creative_comment_path(comment.creative, comment), :method => :delete, data: { confirm: t('are_you_sure')}, :class => "right th", :remote => true  %>
-  <h6>Автор:<span class="alert label radius">Имя<%#= link_to comment.user.user_name, comment.user %></span>
-  <br /><%= t('comments.time', time_ago: time_ago_in_words(comment.created_at))%>
-  <br />
-	<%= content_tag(:p, comment.body, :class => "comment-body") %>
-  </h6>
-<% end %>

@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140203090807) do
     t.datetime "updated_at"
     t.integer  "creative_id"
     t.string   "file"
-    t.boolean  "cropped",     default: false
+    t.boolean  "cropped"
   end
 
   create_table "readings", force: true do |t|
@@ -108,8 +108,6 @@ ActiveRecord::Schema.define(version: 20140203090807) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

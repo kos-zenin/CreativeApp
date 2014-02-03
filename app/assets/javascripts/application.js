@@ -13,6 +13,7 @@
 //= require sisyphus
 //= require global
 //= require tags
+//= require read
 //= require markdown.converter
 //= require markdown.sanitizer
 //= require markdown.editor

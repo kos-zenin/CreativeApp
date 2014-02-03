@@ -20,12 +20,8 @@ class CreativesController < ApplicationController
   # GET /creatives/1
   # GET /creatives/1.json
   def show
-    @comments = @creative.comments.to_a
-    @new_comment = @creative.comments.new
-
     @chapters = @creative.chapters.order(number: :asc)
     @creative.readers.delete current_user if current_user.present?
-    
     check_for_mistakes
   end
   # GET /creatives/new

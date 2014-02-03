@@ -11,7 +11,13 @@
 #
 
 class Comment < ActiveRecord::Base
-	belongs_to :user
 	belongs_to :creative
-end
+	belongs_to :user
 
+	 def self.create_by_user(params, user)
+    comment = self.new(params)
+    comment.user = user
+    comment.save
+    comment
+  end
+end

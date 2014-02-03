@@ -1,6 +1,7 @@
 $ ->
   getComments = ->
     comments_url = $(".creative").data("comments")
+    $(".comments").html('')
     $.getJSON comments_url, (data) ->
       data.forEach renderComment
 
@@ -11,6 +12,6 @@ $ ->
     source = $("#comment_template").html()
     template = Handlebars.compile(source)
     getComments()
-    $("form").on "ajax:success", (e, data, textStatus, jqXHR) ->
-      $("form")[0].reset()
+    $("form.new_comment").on "ajax:success", (e, data, textStatus, jqXHR) ->
+      $("form.new_comment")[0].reset()
       getComments()

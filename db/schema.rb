@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140203090807) do
 
   create_table "active_admin_comments", force: true do |t|
@@ -84,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140203090807) do
     t.datetime "updated_at"
     t.integer  "creative_id"
     t.string   "file"
-    t.boolean  "cropped",     default: false
+    t.boolean  "cropped"
   end
 
   create_table "readings", force: true do |t|
@@ -129,7 +128,6 @@ ActiveRecord::Schema.define(version: 20140203090807) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ip"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

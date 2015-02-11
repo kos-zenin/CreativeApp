@@ -20,12 +20,12 @@ gem 'sisyphus-rails'
 gem 'best_in_place'
 gem 'jbuilder', '~> 1.2'
 gem 'active_model_serializers', '~> 0.8.0'
-gem 'camanjs-rails'
+gem 'camanjs-rails', git: 'git@github.com:ksz2k/camanjs-rails.git'
 gem 'thinking-sphinx', '3.1.0'
 gem 'whenever', :require => false
 gem 'russian'
 gem 'geocoder'
-gem 'activeadmin'
+gem 'activeadmin', github: 'gregbell/active_admin'
 group :doc do
   gem 'sdoc', require: false
 end

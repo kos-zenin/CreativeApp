@@ -33,13 +33,6 @@ $ ->
     $.post $("#croppic").attr("data-url") + params, (data) ->
       escape data
 
-  $("#retouchpic").click ->
-    Caman "#example", ->
-      @render ->
-        image = @toBase64()
-        $("#image").attr('value', image)
-        $("form").last().submit()
-
   $("#change_source_to_crop").click ->
     $("#croppic").attr('data-original',$(this).attr('data-original'));
     url = $(this).attr('data-url')

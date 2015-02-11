@@ -19,7 +19,3 @@
     </div>
   </div>
 </div>
-  <%= form_for(@picture, :url => retouch_picture_path(@picture.creative, @picture), :remote => true) do |f| %>
-    <input name="image" type="hidden" id="image" value=""/>
-  <% end %>
-<%= javascript_include_tag "camanjs-custom" %>

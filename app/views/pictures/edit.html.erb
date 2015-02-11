@@ -3,20 +3,13 @@
 <fieldset>
 <legend><h1><%= link_to "", creative_pictures_path, :class => "foundicon-left-arrow"%><%= t('.title')%></h1></legend>
   <%= form_for(@picture, :url => creative_picture_path(@picture.creative, @picture), :remote => true) do |f| %>
-  <%= f.text_field :tag_tokens, "data-pre" => @picture.tags.map(&:attributes).to_json %> 
+  <%= f.text_field :tag_tokens, "data-pre" => @picture.tags.map(&:attributes).to_json %>
       <input class="button radius" type='submit' value="<%= t("save") %>"/>
   <% end %>
   <dl class="tabs" data-tab>
-    <dd><a href="#panel-ret-<%= @picture.id %>"><%= t('.ret')%></a></dd>
     <dd class="active"><a href="#panel-crop-<%= @picture.id %>"><%= t('.crop')%></a></dd>
   </dl>
   <div class="tabs-content">
-    <div class="content" id="panel-ret-<%= @picture.id %>">
-      <div id="retpicplace">
-        <%= render "ret" %>
-      </div>
-       <button id="retouchpic"><%= t("retouchpic") %></button>
-    </div>
     <div class="content active" id="panel-crop-<%= @picture.id %>">
       <div id="pic_container_<%= @picture.id %>">
         <%= @picture.cropped ? (image_tag(@picture.cropped_url, :id => "target-#{@picture.id}")) : (image_tag(@picture.file.url, :id => "target-#{@picture.id}")) %>

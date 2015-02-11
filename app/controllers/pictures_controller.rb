@@ -1,7 +1,7 @@
 require 'RMagick'
 include Magick
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:edit, :update, :destroy, :crop, :retouch, :revert]
+  before_action :set_picture, only: [:edit, :update, :destroy, :crop, :revert]
   before_filter :authenticate_user!
 
   # GET /pictures
@@ -58,20 +58,6 @@ class PicturesController < ApplicationController
     new_image.write(target)
 
     thumb = Image.read(target).first.resize_to_fill 200, 150
-    thumb.write(target_thumb)
-  end
-
-  def retouch
-    target = Dir.pwd+"/public"+@picture.cropped_url
-    target_thumb = Dir.pwd+"/public"+@picture.thumb_cropped_url
-    blob = picture_params_without_picture[:image]['data:image/png;base64,'.length .. -1]
-    img = Base64.decode64(blob)
-    File.open(target, 'wb') { |f| f.write(img) }
-    @picture.update_attribute(:cropped, true)
-
-    #RMagick
-    image = Image.read(target).first
-    thumb = image.resize_to_fill 200, 150
     thumb.write(target_thumb)
   end
 

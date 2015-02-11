@@ -18,5 +18,4 @@
 //= require markdown.sanitizer
 //= require markdown.editor
 //= require jquery-fileupload
-//= require camanjs
 //= require foundation

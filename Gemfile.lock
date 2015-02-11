@@ -16,12 +16,6 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
-GIT
-  remote: git@github.com:ksz2k/camanjs-rails.git
-  revision: b1ad959909b27c3b1aafcf15c0686f9d0175b3a7
-  specs:
-    camanjs-rails (4.1.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -236,7 +230,6 @@ DEPENDENCIES
   best_in_place
   better_errors
   binding_of_caller
-  camanjs-rails!
   carrierwave
   coffee-rails (~> 4.0.0)
   devise

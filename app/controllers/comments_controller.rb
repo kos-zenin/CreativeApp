@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token 
+  skip_before_filter :verify_authenticity_token
 
   def create
     creative = Creative.find(params[:creative_id])
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
         format.json { render :json => comments }
     end
   end
-  
+
  def destroy
      @comment = Comment.find(params[:id])
      creative_id = @comment.creative_id

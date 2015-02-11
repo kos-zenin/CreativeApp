@@ -13,9 +13,8 @@ development:
   encoding: utf8
   database: CreativesApp_development
   pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  username: kzenin
+  password: kzenin
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,15 +24,13 @@ test:
   encoding: utf8
   database: CreativesApp_test
   pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  username: kzenin
+  password: kzenin
 
 production:
   adapter: mysql2
   encoding: utf8
   database: CreativesApp_production
   pool: 5
-  username: root
-  password: root
-  socket: /var/run/mysqld/mysqld.sock
+  username: kzenin
+  password: kzenin

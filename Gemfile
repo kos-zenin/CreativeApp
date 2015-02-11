@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.3'
 gem 'rails', '4.0.2'
 gem 'mysql2'
 gem 'sass-rails', '~> 4.0.0'
@@ -10,7 +10,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'foundation-rails'
-gem "redcarpet"
+gem 'redcarpet'
 gem 'pagedown-rails', '~> 1.1.3'
 gem 'jquery-rails'
 gem 'carrierwave'
@@ -19,10 +19,10 @@ gem 'rmagick'
 gem 'sisyphus-rails'
 gem 'best_in_place'
 gem 'jbuilder', '~> 1.2'
-gem "active_model_serializers", "~> 0.8.0"
+gem 'active_model_serializers', '~> 0.8.0'
 gem 'camanjs-rails', git: 'git@github.com:ksz2k/camanjs-rails.git'
 gem 'thinking-sphinx', '3.1.0'
-gem 'whenever', :require => false	
+gem 'whenever', :require => false
 gem 'russian'
 gem 'geocoder'
 gem 'activeadmin', github: 'gregbell/active_admin'

@@ -22,9 +22,9 @@ set :environment, :development
 set :output, 'tmp/whenever.log'
 
 every 5.minute do
-  rake "ts:index"
+  bundle exec rake "ts:index"
 end
 
 every :reboot do
-  rake "ts:start"
+  bundle exec rake "ts:start"
 end

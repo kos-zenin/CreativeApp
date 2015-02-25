@@ -9,12 +9,15 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
+development:
   adapter: mysql2
   encoding: utf8
-  database: CreativesApp_development
-  pool: 5
+  database: сreatives_dev
   username: kzenin
   password: kzenin
+  host: 127.0.0.1
+  port: 3306
+  pool: 25
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
